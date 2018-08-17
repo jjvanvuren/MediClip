@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MediClip"
+             x:Class="MediClip.MainPage">
+    
+    <StackLayout Spacing="10" x:Name="layout">
+      <BoxView HeightRequest="150"
+               Color="Gray"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand" />
+        
+      <BoxView HeightRequest="150"
+               Color="Gray"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand" />
+      <BoxView HeightRequest="150"
+               Color="Gray"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+</ContentPage>
