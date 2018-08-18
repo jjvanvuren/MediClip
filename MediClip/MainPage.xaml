@@ -4,19 +4,9 @@
              xmlns:local="clr-namespace:MediClip"
              x:Class="MediClip.MainPage">
     
-    <StackLayout Spacing="10" x:Name="layout">
-      <BoxView HeightRequest="150"
-               Color="Gray"
-               VerticalOptions="FillAndExpand"
-               HorizontalOptions="FillAndExpand" />
-        
-      <BoxView HeightRequest="150"
-               Color="Gray"
-               VerticalOptions="FillAndExpand"
-               HorizontalOptions="FillAndExpand" />
-      <BoxView HeightRequest="150"
-               Color="Gray"
-               VerticalOptions="FillAndExpand"
-               HorizontalOptions="FillAndExpand" />
-    </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text=" Menu "
+                     Activated="Handle_Activated"
+                     />
+    </ContentPage.ToolbarItems>
 </ContentPage>
