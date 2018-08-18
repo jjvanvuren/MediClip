@@ -9,4 +9,8 @@
                      Activated="Handle_Activated"
                      />
     </ContentPage.ToolbarItems>
+
+    <Label Text="Welcome to the Medi Clip App :)"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"/>
 </ContentPage>

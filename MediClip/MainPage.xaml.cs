@@ -16,7 +16,7 @@ namespace MediClip
 
         private void Handle_Activated(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new TestPage());
+            Navigation.PushAsync(new MenuPage());
         }
 
     }

@@ -5,16 +5,16 @@ using Xamarin.Forms;
 
 namespace MediClip
 {
-    public partial class TestPage : ContentPage
+    public partial class MenuPage : ContentPage
     {
-        public TestPage()
+        public MenuPage()
         {
             InitializeComponent();
         }
 
         private void SearchPatient_Clicked(object sender, System.EventArgs e)
         {
-            DisplayAlert("Success","The button works!","OK");
+            Navigation.PushAsync(new SearchPatientPage());
         }
 
         private void SearchWard_Clicked(object sender, System.EventArgs e)
