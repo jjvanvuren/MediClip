@@ -5,9 +5,8 @@
              x:Class="MediClip.MainPage">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text=" Menu "
-                     Activated="Handle_Activated"
-                     />
+        <ToolbarItem Text="Menu"
+                     Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
 
     <Label Text="Welcome to the Medi Clip App :)"

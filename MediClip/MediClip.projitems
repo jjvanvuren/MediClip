@@ -15,7 +15,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SearchPatientPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PatientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -30,8 +30,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SearchPatientPage.xaml.cs">
-      <DependentUpon>SearchPatientPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)PatientPage.xaml.cs">
+      <DependentUpon>PatientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)WardPage.xaml.cs">
+      <DependentUpon>WardPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)WardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
