@@ -2,14 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MediClip"
-             x:Class="MediClip.MainPage">
+             x:Class="MediClip.MainPage"
+             Title="Main Menu">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
 
     <Label Text="Welcome to the Medi Clip App :)"
-           VerticalOptions="Center"
+           Margin="20"
+           VerticalOptions="Start"
            HorizontalOptions="Center"/>
 </ContentPage>
