@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MediClip"
-             x:Class="MediClip.MainPage"
-             Title="Home Page">
+             x:Class="MediClip.PatientListPage"
+             Title="Assigned Patients">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
@@ -14,32 +13,38 @@
     </ContentPage.ToolbarItems>
 
     <!--A List of the wards-->
-    <ListView ItemsSource="{Binding Wards}"
+    <ListView ItemsSource="{Binding Patients}"
               HasUnevenRows="True"
               BackgroundColor="#ecf0f1"
               SeparatorVisibility="None"
               HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
-              ItemSelected="Ward_Clicked">
+              ItemSelected="Patient_Clicked">
         <ListView.ItemTemplate>
-            <DataTemplate>
-            <ViewCell>
-                    <!--<ViewCell.ContextActions>
+            <!--<DataTemplate>
+                <ViewCell>
+                    --><!--<ViewCell.ContextActions>
                         <MenuItem Clicked="Patient_Clicked" />
-                    </ViewCell.ContextActions>-->
+                    </ViewCell.ContextActions>--><!--
                     <StackLayout Margin="6,4,6,4"
                                  BackgroundColor="White">
-                        <Label Text="{Binding WardTitle}"
+                        <Label Text="{Binding PatientID}"
                            Margin="8"
                            FontAttributes="Bold"
                            FontSize="Medium" />
-                    <Label Text="{Binding Location}"
+                        <Label Text="{Binding PatientName}"
                            Margin="8,2,8,4"
                            FontSize="Small" />
-                </StackLayout>
-            </ViewCell>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>-->
+            <DataTemplate>
+                <ImageCell Text="{Binding PatientID}" 
+                            Height="120"
+                            Detail="{Binding PatientName}" 
+                            ImageSource="{Binding PatientPicture}">
+                </ImageCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
 </ContentPage>

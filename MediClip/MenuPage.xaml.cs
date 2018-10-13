@@ -14,12 +14,12 @@ namespace MediClip
 
         private void SearchPatient_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new PatientPage());
+            Navigation.PushAsync(new PatientListPage());
         }
 
-        private void SearchWard_Clicked(object sender, System.EventArgs e)
+        private void ReturnHome_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new WardPage());
+            Navigation.PushAsync(new MainPage());
         }
     }
 }

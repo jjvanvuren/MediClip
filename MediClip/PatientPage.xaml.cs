@@ -12,9 +12,11 @@ namespace MediClip
             InitializeComponent();
         }
 
-        private void PatientSearch_Activated(object sender, EventArgs e)
+        private void Handle_Activated(object sender, System.EventArgs e)
         {
-            DisplayAlert("Search Button", "It works!!", "OK");
+            Navigation.PushAsync(new MenuPage());
         }
+
+        
     }
 }

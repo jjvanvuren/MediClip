@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms.Internals;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MediClip
 {
-    public partial class MainPage : ContentPage
+    public partial class PatientListPage : ContentPage
     {
-        public MainPage()
+        public PatientListPage()
         {
             InitializeComponent();
-            BindingContext = new WardViewModel();
+            BindingContext = new PatientViewModel();
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -21,10 +22,9 @@ namespace MediClip
             Navigation.PushAsync(new MenuPage());
         }
 
-        private void Ward_Clicked(object sender, System.EventArgs e)
+        private void Patient_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new PatientListPage());
+            Navigation.PushAsync(new PatientPage());
         }
-
     }
 }

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MediClip.MenuPage">
+             x:Class="MediClip.MenuPage"
+             Title="Menu">
 
     <StackLayout>
         <Label Text="Select menu option below:"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                Margin="0,20,0,0"/>
-        <Button Text="Wards"
+        <Button Text="Home Page"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="SearchWard_Clicked" />
-        <Button Text="Patients"
+                Clicked="ReturnHome_Clicked" />
+        <Button Text="View Assigned Patients"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="SearchPatient_Clicked"/>
+                Clicked="SearchPatient_Clicked" />
         
     </StackLayout>
 </ContentPage>

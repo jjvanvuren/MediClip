@@ -2,18 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.PatientPage"
-             Title="Patients">
+             Title="Patient Details">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search"
+        <ToolbarItem Text="Menu"
+                     Priority="0"
+                     Name="Menu"
                      Order="Primary"
-                     Activated="PatientSearch_Activated"/>
+                     Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Label Text="Patients are listed here."
+        <Image x:Name="PatientPicture"
+               Source="bobross.jpeg" />
+        
+        <Label Text="Patient details goes here."
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="Start"
                Margin="20" />
+        <Button Text="Dosage Information"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="150"
+                Clicked="" />
     </StackLayout>
 </ContentPage>
