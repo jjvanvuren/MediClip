@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MediClip.PatientPage"
-             Title="Patient Details">
-
+             x:Class="MediClip.AddNotePage"
+             Title="New Note">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
                      Priority="0"
@@ -13,22 +12,30 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Image x:Name="PatientPicture"
-               Source="bobross.jpeg" />
-        
-        <Label Text="Patient details goes here."
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="Start"
-               Margin="20" />
-        <Button Text="Notes"
+        <Label Text="Note Title:" />
+
+
+        <Entry Placeholder="Title"
+           MaxLength="255"
+           Keyboard="Default" />
+
+        <Label Text="Note:" />
+
+
+        <Editor MaxLength="255"
+           Keyboard="Default" />
+
+        <Button Text="Add Photo"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="Notes_Clicked"/>
-        <!--<Button Text="Dosage Information"
+                Clicked="AddPhoto_Clicked"/>
+
+        <Button Text="Submit"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="" />-->
+                Clicked="Submit_Clicked"/>
     </StackLayout>
+    
 </ContentPage>

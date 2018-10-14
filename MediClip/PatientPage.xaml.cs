@@ -17,6 +17,10 @@ namespace MediClip
             Navigation.PushAsync(new MenuPage());
         }
 
+        private void Notes_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new NoteListPage());
+        }
         
     }
 }
