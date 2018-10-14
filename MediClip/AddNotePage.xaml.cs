@@ -24,7 +24,7 @@ namespace MediClip
 
         private void AddPhoto_Clicked(object sender, System.EventArgs e)
         {
-            //Navigation.PushAsync(new NoteListPage());
+            Navigation.PushAsync(new AddPhotoPage());
         }
 
         private void Submit_Clicked(object sender, System.EventArgs e)
