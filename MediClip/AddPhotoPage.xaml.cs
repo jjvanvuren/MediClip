@@ -22,10 +22,9 @@ namespace MediClip
             CameraButton.Clicked += CameraButton_Clicked;
         }
 
-
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
+
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
@@ -55,7 +54,7 @@ namespace MediClip
             {
                 await DisplayAlert("Permissions Denied", "Unable to take photos.", "OK");
                 //On iOS you may want to send your user to the settings screen.
-                //CrossPermissions.Current.OpenAppSettings();
+                CrossPermissions.Current.OpenAppSettings();
             }
         }
     }

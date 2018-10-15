@@ -19,7 +19,7 @@
               SeparatorVisibility="None"
               HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
-              ItemSelected="Patient_Clicked">
+              ItemTapped="Patient_Clicked">
         <ListView.ItemTemplate>
             <!--<DataTemplate>
                 <ViewCell>

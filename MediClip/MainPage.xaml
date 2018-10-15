@@ -20,7 +20,7 @@
               SeparatorVisibility="None"
               HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
-              ItemSelected="Ward_Clicked">
+              ItemTapped="Ward_Clicked">
         <ListView.ItemTemplate>
             <DataTemplate>
             <ViewCell>
