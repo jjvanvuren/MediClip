@@ -25,11 +25,13 @@
         <Editor MaxLength="255"
            Keyboard="Default" />
 
+        <Image x:Name="PhotoImage" />
+
         <Button Text="Add Photo"
+                x:Name="CameraButton"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
-                WidthRequest="150"
-                Clicked="AddPhoto_Clicked"/>
+                WidthRequest="150"/>
 
         <Button Text="Submit"
                 VerticalOptions="Center"
