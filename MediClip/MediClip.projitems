@@ -50,17 +50,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PatientViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ward.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WardPage.xaml.cs">
-      <DependentUpon>WardPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)WardViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)WardPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)PatientListPage.xaml">

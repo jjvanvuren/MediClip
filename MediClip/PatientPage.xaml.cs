@@ -10,6 +10,7 @@ namespace MediClip
         public PatientPage()
         {
             InitializeComponent();
+            var patient = new DataPatient();
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

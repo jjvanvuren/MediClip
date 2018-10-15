@@ -17,6 +17,7 @@ namespace MediClip
             }
         }
 
+        //List All Assigned Patients
         public PatientViewModel()
         {
             Patients = new ObservableCollection<Patient>();
@@ -25,6 +26,20 @@ namespace MediClip
 
             foreach (var patient in _context.Patients)
             {
+                Patients.Add(patient);
+            }
+        }
+
+        //List Patients for a Specific Ward
+        public PatientViewModel(int iWardID)
+        {
+            Patients = new ObservableCollection<Patient>();
+
+            DataPatient _context = new DataPatient();
+
+            foreach (var patient in _context.Patients)
+            {
+                if (iWardID == patient.WardID)
                 Patients.Add(patient);
             }
         }
