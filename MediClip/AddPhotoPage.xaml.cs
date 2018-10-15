@@ -24,7 +24,7 @@ namespace MediClip
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-
+            await CrossMedia.Current.Initialize();
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
@@ -46,8 +46,9 @@ namespace MediClip
             {
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
-                    Directory = "Sample",
-                    Name = "test.jpg"
+                    SaveToAlbum = true,
+                    //Directory = "Sample",
+                    //Name = "test.jpg"
                 });
             }
             else
