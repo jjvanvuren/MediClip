@@ -22,6 +22,10 @@ namespace MediClip
         {
             Navigation.PushAsync(new NoteListPage());
         }
-        
+
+        private void Dosage_Clicked(object sender, System.EventArgs e)
+        {
+            DisplayAlert("Dosage Information", "Dosage Information will be displayed here.", "OK");
+        }
     }
 }

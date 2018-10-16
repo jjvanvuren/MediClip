@@ -12,23 +12,26 @@
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <Image x:Name="PatientPicture"
+    <ScrollView>
+        <StackLayout>
+            <Image x:Name="PatientPicture"
                Source="bobross.jpeg" />
-        
-        <Label Text="Patient details goes here."
+
+            <Label Text="Patient details goes here."
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="Start"
                Margin="20" />
-        <Button Text="Notes"
+            <Button Text="Notes"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
                 Clicked="Notes_Clicked"/>
-        <!--<Button Text="Dosage Information"
+            <Button Text="Dosage Information"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="" />-->
-    </StackLayout>
+                Clicked="Dosage_Clicked"    />
+        </StackLayout>
+    </ScrollView>
+    
 </ContentPage>
