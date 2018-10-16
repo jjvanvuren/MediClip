@@ -5,16 +5,29 @@
              Title="Notes">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
-                     Priority="0"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="1"
                      Name="Menu"
                      Order="Primary"
                      Activated="Handle_Activated" />
+        <ToolbarItem Text="Add Note"
+                     Priority="0"
+                     Name="Add Note"
+                     Activated="AddNote_Clicked" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Button Text="Add Note"
+        <Label Text="List of notes will be displayed here."
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Margin="8"
+               FontAttributes="Bold"
+               FontSize="Medium" />
+        <!--<Button Text="Add Note"
+                BackgroundColor="#127c54"
+                TextColor="White"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
-                Clicked="AddNote_Clicked"/>
+                Clicked="AddNote_Clicked"/>-->
     </StackLayout>
 </ContentPage>

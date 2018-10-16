@@ -5,6 +5,7 @@
              Title="New Note">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
                      Priority="0"
                      Name="Menu"
                      Order="Primary"
@@ -28,12 +29,16 @@
         <Image x:Name="PhotoImage" />
 
         <Button Text="Add Photo"
+                BackgroundColor="#127c54"
+                TextColor="White"
                 x:Name="CameraButton"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
 
         <Button Text="Submit"
+                BackgroundColor="#127c54"
+                TextColor="White"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"

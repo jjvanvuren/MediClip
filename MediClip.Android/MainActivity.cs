@@ -27,6 +27,9 @@ namespace MediClip.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            //Set the colour of the Android status bar to match MediClip theme
+            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(19, 124, 84));
         }
         // Added for permission setup
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)

@@ -5,9 +5,10 @@
              x:Class="MediClip.MainPage"
              NavigationPage.HasBackButton="False"
              Title="Home Page">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
                      Priority="0"
                      Name="Menu"
                      Order="Primary"

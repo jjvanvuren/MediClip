@@ -11,7 +11,12 @@ namespace MediClip
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#127c54"),
+                BarTextColor = Color.White,
+                BackgroundColor = Color.WhiteSmoke,
+            };
         }
 
         protected override void OnStart()

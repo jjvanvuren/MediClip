@@ -6,6 +6,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
                      Priority="0"
                      Name="Menu"
                      Order="Primary"
@@ -18,19 +19,23 @@
                Source="bobross.jpeg" />
 
             <Label Text="Patient details goes here."
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="Start"
-               Margin="20" />
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="20" />
             <Button Text="Notes"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                WidthRequest="150"
-                Clicked="Notes_Clicked"/>
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Notes_Clicked" />
             <Button Text="Dosage Information"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                WidthRequest="150"
-                Clicked="Dosage_Clicked"    />
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Dosage_Clicked" />
         </StackLayout>
     </ScrollView>
     

@@ -10,11 +10,15 @@
                VerticalOptions="Start"
                Margin="0,20,0,0"/>
         <Button Text="Home Page"
+                BackgroundColor="#127c54"
+                TextColor="White"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
                 Clicked="ReturnHome_Clicked" />
         <Button Text="View Assigned Patients"
+                BackgroundColor="#127c54"
+                TextColor="White"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="150"
