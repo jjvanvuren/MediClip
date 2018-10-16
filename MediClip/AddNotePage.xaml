@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.AddNotePage"
@@ -23,7 +23,7 @@
         <Label Text="Note:" />
 
 
-        <Editor MaxLength="255"
+        <Editor x:Name="NoteArea" MaxLength="255"
            Keyboard="Default" />
 
         <Image x:Name="PhotoImage" />

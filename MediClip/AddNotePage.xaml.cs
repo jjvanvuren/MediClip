@@ -10,17 +10,25 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DeviceMotion.Plugin;
+using DeviceMotion.Plugin.Abstractions;
 
 namespace MediClip
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddNotePage : ContentPage
-	{
-		public AddNotePage ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddNotePage : ContentPage
+    {
+        private Editor enteryField;
+
+
+        public AddNotePage()
+        {
+            InitializeComponent();
 
             CameraButton.Clicked += CameraButton_Clicked;
+            this.enteryField = this.FindByName<Editor>("NoteArea");
+
+            CrossDeviceMotion.Current.SensorValueChanged += Current_SensorValueChanged;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -68,6 +76,63 @@ namespace MediClip
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
             //Navigation.PushAsync(new NoteListPage());
+        }
+        //All below code is for cleaning the notes section for text
+        //Below code was borrowed from week 5 lab to enable the Accelerometer
+        //and to disable to the accelerometer
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            CrossDeviceMotion.Current.Start(MotionSensorType.Accelerometer);
+        }
+
+        // When this page dissapears, stop listenting for changes
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            CrossDeviceMotion.Current.Stop(MotionSensorType.Accelerometer);
+        }
+
+
+        void Current_SensorValueChanged(object sender, SensorValueChangedEventArgs e)
+        {
+            // As the motion plugin supports multiple types of sensors (eg compass, magnetometer, etc) 
+            // we need to differentiate between sensor readings
+            switch (e.SensorType)
+            {
+                // When the accelerometer changes, call a method to handle this event
+                case MotionSensorType.Accelerometer:
+                    ClearTextField(e.Value as MotionVector);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // This methord is ussed to check if there was a shake
+        private Boolean WasTheDeviceShaken(MotionVector value)
+        {
+
+            if (value.X > 15 || value.Y > 15 || value.Z > 15)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // This methord checks to see if the device was shaken by calling another methord and if so this methord clears the text Feild.
+        private void ClearTextField(MotionVector value)
+        {
+            if (WasTheDeviceShaken(value))
+            {
+                this.enteryField.Text = "";
+            }
         }
     }
 }
