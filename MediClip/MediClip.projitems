@@ -40,7 +40,6 @@
       <DependentUpon>AddNotePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Patient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PatientListPage.xaml.cs">
       <DependentUpon>PatientListPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -49,8 +48,12 @@
       <DependentUpon>PatientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PatientViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Ward.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WardViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\MediClipClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Ward.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Patient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Notes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Nurse.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)PatientListPage.xaml">
@@ -60,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Images\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Client\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Objects\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)NoteListPage.xaml">
