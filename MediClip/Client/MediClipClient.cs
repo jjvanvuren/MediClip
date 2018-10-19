@@ -98,6 +98,27 @@ namespace MediClip.Client
 
         }
 
+        public async Task<Nurse> Login(String id)
+        {
+
+            var searchUrl = API_URL + $"& ????{WebUtility.UrlEncode(id)}";
+            var client = new HttpClient();
+
+            var response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Nurse FoundNurse = JsonConvert.DeserializeObject<Nurse>(content);
+
+                return FoundNurse;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
+
+        }
+
     }
 }
 
