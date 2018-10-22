@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediClip.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,10 @@ namespace MediClip
 {
     public partial class PatientListPage : ContentPage
     {
-        public PatientListPage()
+        public PatientListPage(List<Patient> patients)
         {
             InitializeComponent();
-            BindingContext = new PatientViewModel();
+            BindingContext = patients;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

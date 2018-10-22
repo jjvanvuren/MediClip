@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
-using MediClip.Objects;
+using MediClip.Models;
+using System.Net.Http;
+using System.Threading.Tasks;
+using MediClip.Client;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace MediClip
 {
@@ -18,16 +23,38 @@ namespace MediClip
             }
         }
 
+        
+
         public WardViewModel()
         {
-            Wards = new ObservableCollection<Ward>();
+            wards = new ObservableCollection<Ward>();
 
-            DataWard _context = new DataWard();
-
-            foreach (var ward in _context.Wards)
+            // Run the task in the background (as it may take a long time)
+            Task.Run(async () =>
             {
-                Wards.Add(ward);
-            }
+                // Create a new client
+                MediClipClient client = new MediClipClient();
+
+
+                // Perform the search operation
+                List<Ward> result = await client.ListWard();
+
+                foreach (Ward wWard in result)
+                {
+                    wards.Add(wWard);
+                }
+
+            });
+
+
+            //Wards = new ObservableCollection<Ward>();
+
+            //DataWard dWardList = new DataWard();
+
+            //foreach (var ward in _context.Wards)
+            //{
+            //    Wards.Add(ward);
+            //}
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MediClip.Objects
+namespace MediClip.Models
 {
     public class Nurse
     {

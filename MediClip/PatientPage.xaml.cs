@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediClip.Models;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,7 +11,7 @@ namespace MediClip
         public PatientPage()
         {
             InitializeComponent();
-            var patient = new DataPatient();
+            DataPatient patient = new DataPatient();
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -20,6 +21,9 @@ namespace MediClip
 
         private void Notes_Clicked(object sender, System.EventArgs e)
         {
+            //var API_URL = "https://mediclipwebapi.azurewebsites.net/";
+            //var sPatientID = ToString ()
+
             Navigation.PushAsync(new NoteListPage());
         }
 

@@ -41,8 +41,8 @@
             </DataTemplate>-->
             <DataTemplate>
                 <ImageCell Text="{Binding PatientID}"
-                            Detail="{Binding PatientName}" 
-                            ImageSource="{Binding PatientPicture}">
+                            Detail="{Binding FirstName}"
+                            ImageSource="blankPersonMale.png">
                 </ImageCell>
             </DataTemplate>
         </ListView.ItemTemplate>

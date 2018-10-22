@@ -50,10 +50,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)PatientViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WardViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\MediClipClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Ward.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Patient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Notes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Nurse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ward.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Patient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Note.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Nurse.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)PatientListPage.xaml">
@@ -64,7 +64,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Images\" />
     <Folder Include="$(MSBuildThisFileDirectory)Client\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Objects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)NoteListPage.xaml">

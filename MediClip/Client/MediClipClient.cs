@@ -4,17 +4,18 @@ using System.Net.Http;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using MediClip.Objects;
+using MediClip.Models;
+using System.Collections.Generic;
 
 namespace MediClip.Client
 {
     public class MediClipClient
     {
-            const String API_KEY = "";
-            const String API_URL = "" + API_KEY;
+            //const String API_KEY = "";
+            const String API_URL = "https://mediclipwebapi.azurewebsites.net/";
 
             //Searching for a patient using name
-        public async Task<Patient> Search(String patientName)
+            public async Task<Patient> Search(String patientName)
             {
                 var url = API_URL + $"& ???? {WebUtility.UrlEncode(patientName)}";
                 var client = new HttpClient();
@@ -35,7 +36,7 @@ namespace MediClip.Client
 
             //Searching for a patient using ID
             public async Task<Patient> FindPatient(String id)
-        {
+            {
 
                 var searchUrl = API_URL + $"& ????{WebUtility.UrlEncode(id)}";
                 var client = new HttpClient();
@@ -59,25 +60,72 @@ namespace MediClip.Client
             public async Task<Ward> FindWard(String id)
             {
 
-            var searchUrl = API_URL + $"& ????{WebUtility.UrlEncode(id)}";
-            var client = new HttpClient();
+                var searchUrl = API_URL + $"& ????{WebUtility.UrlEncode(id)}";
+                var client = new HttpClient();
 
-            var response = await client.GetAsync(searchUrl);
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                var foundWard = JsonConvert.DeserializeObject<Ward>(content);
+                var response = await client.GetAsync(searchUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var foundWard = JsonConvert.DeserializeObject<Ward>(content);
 
-                return foundWard;
+                    return foundWard;
+                }
+                else
+                {
+                    throw new Exception($"Client returned response code of {response.StatusCode}");
+                }
+
             }
-            else
+
+            // Get list of all wards from the API
+            public async Task<List<Ward>> ListWard()
             {
-                throw new Exception($"Client returned response code of {response.StatusCode}");
+
+                var searchUrl = API_URL + "GetAllWards";
+                var client = new HttpClient();
+
+                var response = await client.GetAsync(searchUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    List<Ward> Wards = JsonConvert.DeserializeObject<List<Ward>>(content);
+
+                    return Wards;
+                }
+                else
+                {
+                    throw new Exception($"Client returned response code of {response.StatusCode}");
+                }
+
             }
 
-        }
+            // Get list of all Patients from the API
+            public async Task<List<Patient>> ListPatient(int id)
+            {
 
-        public async Task<Notes> FindNote(String id)
+                var searchUrl = API_URL + "GetWardPatients?id=" + Convert.ToString(id);
+                var client = new HttpClient();
+
+                var response = await client.GetAsync(searchUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    List<Patient> Patients = JsonConvert.DeserializeObject<List<Patient>>(content);
+
+                    return Patients;
+                }
+                else
+                {
+                    throw new Exception($"Client returned response code of {response.StatusCode}");
+                }
+
+            }
+
+
+
+
+        public async Task<Note> FindNote(String id)
         {
 
             var searchUrl = API_URL + $"& ????{WebUtility.UrlEncode(id)}";
@@ -87,7 +135,7 @@ namespace MediClip.Client
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                Notes FoundNote = JsonConvert.DeserializeObject<Notes>(content);
+                Note FoundNote = JsonConvert.DeserializeObject<Note>(content);
 
                 return FoundNote;
             }

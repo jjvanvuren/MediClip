@@ -20,7 +20,6 @@ namespace MediClip
     {
         private Editor enteryField;
 
-
         public AddNotePage()
         {
             InitializeComponent();
@@ -75,7 +74,8 @@ namespace MediClip
 
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
-            //Navigation.PushAsync(new NoteListPage());
+            //var API_URL = "";
+
         }
         //All below code is for cleaning the notes section for text
         //Below code was borrowed from week 5 lab to enable the Accelerometer
