@@ -1,6 +1,7 @@
 ﻿using MediClip.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace MediClip
 {
     public partial class PatientListPage : ContentPage
     {
-        public PatientListPage(List<Patient> patients)
+        public PatientListPage(ObservableCollection<Patient> patients)
         {
             InitializeComponent();
             BindingContext = patients;

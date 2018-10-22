@@ -37,7 +37,7 @@ namespace MediClip
 
         private void Ward_Clicked(object sender, System.EventArgs e)
         {
-
+            ObservableCollection<Patient> patientList = new ObservableCollection<Patient>();
 
             Task.Run(async () =>
             {
@@ -49,12 +49,16 @@ namespace MediClip
                 {
                     // run the query
                     MediClipClient client = new MediClipClient();
-                    List<Patient> patientList = await client.ListPatient(wWardID);
+                    List<Patient> result = await client.ListPatient(wWardID);
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         // create patientlist page
-                        this.Navigation.PushAsync(new PatientListPage(patientList));
+                        foreach (Patient patient in result)
+                        {
+                            patientList.Add(patient);
+                        }
+                        Navigation.PushAsync(new PatientListPage(patientList));
                     });
                 }
                 catch

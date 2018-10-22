@@ -82,13 +82,13 @@ namespace MediClip.Client
             public async Task<List<Ward>> ListWard()
             {
 
-                var searchUrl = API_URL + "GetAllWards";
-                var client = new HttpClient();
+                String searchUrl = API_URL + "GetAllWards";
+                HttpClient client = new HttpClient();
 
-                var response = await client.GetAsync(searchUrl);
+                HttpResponseMessage response = await client.GetAsync(searchUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
+                    String content = await response.Content.ReadAsStringAsync();
                     List<Ward> Wards = JsonConvert.DeserializeObject<List<Ward>>(content);
 
                     return Wards;
@@ -104,13 +104,13 @@ namespace MediClip.Client
             public async Task<List<Patient>> ListPatient(int id)
             {
 
-                var searchUrl = API_URL + "GetWardPatients?id=" + Convert.ToString(id);
-                var client = new HttpClient();
+                String searchUrl = API_URL + "GetWardPatients?id=" + Convert.ToString(id);
+                HttpClient client = new HttpClient();
 
-                var response = await client.GetAsync(searchUrl);
+                HttpResponseMessage response = await client.GetAsync(searchUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
+                    String content = await response.Content.ReadAsStringAsync();
                     List<Patient> Patients = JsonConvert.DeserializeObject<List<Patient>>(content);
 
                     return Patients;
