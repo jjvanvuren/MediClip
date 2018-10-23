@@ -24,7 +24,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ImageCell Text="{Binding PatientID}"
-                            Detail="{Binding FirstName}"
+                            Detail="{Binding FullName}"
                             ImageSource="blankPersonMale.png">
                 </ImageCell>
             </DataTemplate>
