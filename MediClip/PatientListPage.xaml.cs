@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediClip.Client;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,7 +32,32 @@ namespace MediClip
 
         private void Patient_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new PatientPage());
+            Task.Run(async () =>
+            {
+
+                // Get selected ward id
+                Patient selectedItem = this.patientList.SelectedItem as Patient;
+                int pPatientID = selectedItem.PatientID;
+                int wardID = selectedItem.WardID;
+                try
+                {
+                    // run the query
+                    MediClipClient client = new MediClipClient();
+                    Patient result = await client.PatientByID(wardID, pPatientID);
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Navigation.PushAsync(new PatientPage(result));
+                    });
+                }
+                catch
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        DisplayAlert("Error", "Error retreiving patient list", "Okay");
+                    });
+                }
+            });
         }
     }
 }

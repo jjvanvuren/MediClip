@@ -8,10 +8,13 @@ namespace MediClip
 {
     public partial class PatientPage : ContentPage
     {
-        public PatientPage()
+        private StackLayout patientInfo;
+        public PatientPage(Patient incomingPatient)
         {
             InitializeComponent();
             DataPatient patient = new DataPatient();
+            this.patientInfo = this.FindByName<StackLayout>("PatientInfo");
+            //this.patientInfo.ItemsSource = incomingPatient;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

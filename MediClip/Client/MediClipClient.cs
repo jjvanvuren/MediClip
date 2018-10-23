@@ -57,6 +57,27 @@ namespace MediClip.Client
                 }
 
             }
+            // Get list of all Patients from the API
+            public async Task<Patient> PatientByID(int wardId, int patientId)
+            {
+
+                String searchUrl = API_URL + "GetPatient?wId=" + Convert.ToString(wardId) + "&pId=" + Convert.ToString(patientId);
+                HttpClient client = new HttpClient();
+
+                HttpResponseMessage response = await client.GetAsync(searchUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    String content = await response.Content.ReadAsStringAsync();
+                    Patient patient = JsonConvert.DeserializeObject<Patient>(content);
+
+                    return patient;
+                }
+                else
+                {
+                    throw new Exception($"Client returned response code of {response.StatusCode}");
+                }
+
+        }
 
 
 

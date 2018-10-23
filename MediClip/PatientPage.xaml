@@ -18,7 +18,15 @@
             <Image x:Name="PatientPicture"
                Source="bobross.jpeg" />
 
-            <Label Text="Patient details goes here."
+            <Label Text="{Binding FullName}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="20" />
+            <Label Text="{Binding AssignDateFrom}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="20" />
+            <Label Text="{Binding AssignDateTo}"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
                    Margin="20" />
