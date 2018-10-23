@@ -13,10 +13,15 @@ namespace MediClip
 {
     public partial class PatientListPage : ContentPage
     {
+        private ListView patientList;
+
         public PatientListPage(ObservableCollection<Patient> patients)
         {
             InitializeComponent();
-            BindingContext = patients;
+
+            this.patientList = this.FindByName<ListView>("Patients");
+            this.patientList.ItemsSource = patients;
+
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

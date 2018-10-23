@@ -35,7 +35,7 @@
                            Margin="8"
                            FontAttributes="Bold"
                            FontSize="Medium" />
-                    <Label Text="{Binding Description}"
+                        <Label Text="{Binding Description}"
                            Margin="8,2,8,4"
                            FontSize="Small" />
                 </StackLayout>
