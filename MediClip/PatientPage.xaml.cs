@@ -1,6 +1,9 @@
 ﻿using MediClip.Models;
 using System;
 using System.Collections.Generic;
+using MediClip.Client;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 
@@ -8,13 +11,26 @@ namespace MediClip
 {
     public partial class PatientPage : ContentPage
     {
-        private StackLayout patientInfo;
+        private Label name;
+        private Label gender;
+        private Label assignDateFrom;
+        private Label assignDateTo;
+        private int patientID;
+
         public PatientPage(Patient incomingPatient)
         {
             InitializeComponent();
             DataPatient patient = new DataPatient();
-            this.patientInfo = this.FindByName<StackLayout>("PatientInfo");
-            //this.patientInfo.ItemsSource = incomingPatient;
+            this.name = this.FindByName<Label>("FullName");
+            this.gender = this.FindByName<Label>("Gender");
+            this.assignDateFrom = this.FindByName<Label>("AssignDateFrom");
+            this.assignDateTo = this.FindByName<Label>("AssignDateTo");
+
+            name.Text = "Name: " + incomingPatient.FullName;
+            gender.Text = "Gender: " + incomingPatient.Sex;
+            assignDateFrom.Text = "Assigned Date: " + incomingPatient.AssignDateFrom;
+            assignDateTo.Text = "Discharge Date: " + incomingPatient.AssignDateTo;
+            patientID = incomingPatient.PatientID;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -24,10 +40,33 @@ namespace MediClip
 
         private void Notes_Clicked(object sender, System.EventArgs e)
         {
-            //var API_URL = "https://mediclipwebapi.azurewebsites.net/";
-            //var sPatientID = ToString ()
+            ObservableCollection<Note> patientNotes = new ObservableCollection<Note>();
 
-            Navigation.PushAsync(new NoteListPage());
+            Task.Run(async () =>
+            {
+                try
+                {
+                    // run the query
+                    MediClipClient client = new MediClipClient();
+                    List<Note> result = await client.PatientByID(patientID);
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        foreach (Note notes in result)
+                        {
+                            patientNotes.Add(notes);
+                        }
+                        Navigation.PushAsync(new NoteListPage(patientNotes));
+                    });
+                }
+                catch
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        DisplayAlert("Error", "Error retreiving patient list", "Okay");
+                    });
+                }
+            });
         }
 
         private void Dosage_Clicked(object sender, System.EventArgs e)

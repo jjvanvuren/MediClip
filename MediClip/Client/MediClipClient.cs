@@ -57,7 +57,7 @@ namespace MediClip.Client
                 }
 
             }
-            // Get list of all Patients from the API
+            // Get Patient from the API BY ID
             public async Task<Patient> PatientByID(int wardId, int patientId)
             {
 
@@ -76,6 +76,28 @@ namespace MediClip.Client
                 {
                     throw new Exception($"Client returned response code of {response.StatusCode}");
                 }
+
+        }
+
+        // Get Notes for Patient from the API BY ID
+        public async Task<List<Note>> PatientByID(int patientId)
+        {
+
+            String searchUrl = API_URL + "GetPatientNotes?id=" + Convert.ToString(patientId);
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                String content = await response.Content.ReadAsStringAsync();
+                List<Note> notes = JsonConvert.DeserializeObject<List<Note>>(content);
+
+                return notes;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
 
         }
 

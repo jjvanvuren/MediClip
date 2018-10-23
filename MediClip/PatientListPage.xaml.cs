@@ -35,7 +35,7 @@ namespace MediClip
             Task.Run(async () =>
             {
 
-                // Get selected ward id
+                // Get selected person id
                 Patient selectedItem = this.patientList.SelectedItem as Patient;
                 int pPatientID = selectedItem.PatientID;
                 int wardID = selectedItem.WardID;
