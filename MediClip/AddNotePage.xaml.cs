@@ -18,14 +18,14 @@ namespace MediClip
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddNotePage : ContentPage
     {
-        private Editor enteryField;
+        private Editor entryField;
 
         public AddNotePage()
         {
             InitializeComponent();
 
             CameraButton.Clicked += CameraButton_Clicked;
-            this.enteryField = this.FindByName<Editor>("NoteArea");
+            this.entryField = this.FindByName<Editor>("NoteArea");
 
             CrossDeviceMotion.Current.SensorValueChanged += Current_SensorValueChanged;
         }
@@ -74,7 +74,7 @@ namespace MediClip
 
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
-            //var API_URL = "";
+
 
         }
         //All below code is for cleaning the notes section for text
@@ -131,7 +131,7 @@ namespace MediClip
         {
             if (WasTheDeviceShaken(value))
             {
-                this.enteryField.Text = "";
+                this.entryField.Text = "";
             }
         }
     }

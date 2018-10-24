@@ -16,11 +16,11 @@ namespace MediClip
         private Label assignDateFrom;
         private Label assignDateTo;
         private int patientID;
+        private String dosageInformation;
 
         public PatientPage(Patient incomingPatient)
         {
             InitializeComponent();
-            DataPatient patient = new DataPatient();
             this.name = this.FindByName<Label>("FullName");
             this.gender = this.FindByName<Label>("Gender");
             this.assignDateFrom = this.FindByName<Label>("AssignDateFrom");
@@ -31,6 +31,7 @@ namespace MediClip
             assignDateFrom.Text = "Assigned Date: " + incomingPatient.AssignDateFrom;
             assignDateTo.Text = "Discharge Date: " + incomingPatient.AssignDateTo;
             patientID = incomingPatient.PatientID;
+            dosageInformation = incomingPatient.Dosage;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -71,7 +72,7 @@ namespace MediClip
 
         private void Dosage_Clicked(object sender, System.EventArgs e)
         {
-            DisplayAlert("Dosage Information", "Dosage Information will be displayed here.", "OK");
+            DisplayAlert("Dosage Information", dosageInformation, "OK");
         }
     }
 }
