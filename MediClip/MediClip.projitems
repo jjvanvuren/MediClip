@@ -40,6 +40,10 @@
       <DependentUpon>AddNotePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)NotePage.xaml.cs">
+      <DependentUpon>NotePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PatientListPage.xaml.cs">
       <DependentUpon>PatientListPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -74,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)AddNotePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)NotePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

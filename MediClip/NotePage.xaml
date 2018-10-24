@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.NotePage"
+             Title="Note">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label x:Name= "Note Stuff"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />
+    </StackLayout>
+</ContentPage>
