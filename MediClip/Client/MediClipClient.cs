@@ -101,6 +101,27 @@ namespace MediClip.Client
 
         }
 
+        // Get Notes for Patient from the API BY ID
+        public async Task<Note> GetNote(int noteId, int patientId)
+        {
+
+            String searchUrl = API_URL + "GetNote?nId=" + Convert.ToString(noteId) + "&pId=" + Convert.ToString(patientId);
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                String content = await response.Content.ReadAsStringAsync();
+                Note singleNote = JsonConvert.DeserializeObject<Note>(content);
+
+                return singleNote;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
+
+        }
 
 
     }

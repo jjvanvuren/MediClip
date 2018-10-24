@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.NotePage"
@@ -14,9 +14,10 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Label x:Name= "Note Stuff"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Start"
-                   Margin="5" />
+        <Label x:Name="Title" Margin="5" />
+        <Label Text="Note:" Margin="5"/>
+        <Label x:Name="NoteText" Margin="5"/>
+
+        <Image x:Name="PhotoImage" />
     </StackLayout>
 </ContentPage>

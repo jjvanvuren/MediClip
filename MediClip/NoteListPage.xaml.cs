@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using MediClip.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MediClip.Client;
 
 namespace MediClip
 {
@@ -34,7 +35,32 @@ namespace MediClip
         }
         private void Note_Clicked(object sender, System.EventArgs e)
         {
-            DisplayAlert("Error", "Not Implimented", "Okay");
+            Task.Run(async () =>
+            {
+
+                // Get selected person id
+                Note selectedItem = this.listOfNotes.SelectedItem as Note;
+                int pPatientID = selectedItem.PatientID;
+                int noteID = selectedItem.NoteID;
+                try
+                {
+                    // run the query
+                    MediClipClient client = new MediClipClient();
+                    Note result = await client.GetNote(noteID, pPatientID);
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Navigation.PushAsync(new NotePage(result));
+                    });
+                }
+                catch
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        DisplayAlert("Error", "Error retreiving patient note", "Okay");
+                    });
+                }
+            });
         }
     }
 }
