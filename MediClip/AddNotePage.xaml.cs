@@ -7,11 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MediClip.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DeviceMotion.Plugin;
 using DeviceMotion.Plugin.Abstractions;
+using MediClip.Client;
 
 namespace MediClip
 {
@@ -19,15 +20,19 @@ namespace MediClip
     public partial class AddNotePage : ContentPage
     {
         private Editor entryField;
+        private int pPatientID;
+        private Entry title;
 
-        public AddNotePage()
+        public AddNotePage(int patientID)
         {
             InitializeComponent();
 
             CameraButton.Clicked += CameraButton_Clicked;
             this.entryField = this.FindByName<Editor>("NoteArea");
+            this.title = this.FindByName<Entry>("Title");
 
             CrossDeviceMotion.Current.SensorValueChanged += Current_SensorValueChanged;
+            pPatientID = patientID;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -74,6 +79,31 @@ namespace MediClip
 
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
+            String text = this.entryField.Text;
+            String theTitle = this.title.Text;
+            String theImage = this.title.Text;
+
+            Task.Run(async () =>
+            {
+                try
+                {
+                    // run the query
+                    MediClipClient client = new MediClipClient();
+                    bool result = await client.PostNote( pPatientID, theTitle,  text, theImage);
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        //Navigation.PushAsync(new NotePage());
+                    });
+                }
+                catch
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        DisplayAlert("Error", "Error retreiving patient note", "Okay");
+                    });
+                }
+            });
 
 
         }

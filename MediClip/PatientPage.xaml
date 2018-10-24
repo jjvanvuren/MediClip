@@ -15,8 +15,7 @@
 
     <ScrollView>
         <StackLayout>
-            <Image x:Name="PatientPicture"
-               Source="bobross.jpeg" />
+            <Image x:Name="PatientPicture"/>
 
             <Label x:Name= "FullName"
                    HorizontalOptions="CenterAndExpand"

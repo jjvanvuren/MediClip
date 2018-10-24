@@ -14,6 +14,7 @@ namespace MediClip
 	public partial class NoteListPage : ContentPage
 	{
         private ListView listOfNotes;
+        private ObservableCollection<Note> patient;
 
         public NoteListPage (ObservableCollection<Note> patients)
 		{
@@ -21,6 +22,7 @@ namespace MediClip
             this.listOfNotes = this.FindByName<ListView>("ListView");
 
             this.listOfNotes.ItemsSource = patients;
+            patient = patients;
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)
@@ -30,8 +32,8 @@ namespace MediClip
 
         private void AddNote_Clicked(object sender, System.EventArgs e)
         {
-
-            Navigation.PushAsync(new AddNotePage());
+                int pPatientID = patient[1].PatientID;
+                Navigation.PushAsync(new AddNotePage(pPatientID));
         }
         private void Note_Clicked(object sender, System.EventArgs e)
         {
