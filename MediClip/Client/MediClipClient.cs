@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MediClip.Models;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MediClip.Client
 {
@@ -124,15 +125,32 @@ namespace MediClip.Client
         }
 
         // Posting Note for Patient to the API BY ID
-        public async Task<bool> PostNote( int patientId, string title, String text, String Picture)
+        public void PostNote( int patientId, string title, String text, String incomingPicture)
         {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(API_URL+ "SaveNote");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            String searchUrl = API_URL + "SaveNote { \"PatientID\": " + Convert.ToString(patientId) +
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{ \"PatientID\": " + Convert.ToString(patientId) +", \"Title\": \"" + title +"\", \"Text\": \"" + text +"\", \"Picture\": \"" + incomingPicture + "\"}";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
+            /*String searchUrl = API_URL + "SaveNote{ \"PatientID\": " + Convert.ToString(patientId) +
                                                         ", \"Title\": \"" + title +
                                                         "\", \"Text\": \"" + text +
-                                                        "\", \"Picture\": \"" + Picture + "\"}";
+                                                        "\", \"Picture\": \"" + Picture + "\"}";*/
 
-            HttpClient client = new HttpClient();
+            /*HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(searchUrl);
             if (response.IsSuccessStatusCode)
             {
@@ -142,7 +160,7 @@ namespace MediClip.Client
             else
             {
                 throw new Exception($"Client returned response code of {response.StatusCode}");
-            }
+            }*/
 
         }
 

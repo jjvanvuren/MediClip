@@ -84,14 +84,12 @@ namespace MediClip
             String text = this.entryField.Text;
             String theTitle = this.title.Text;
             String theImage = this.title.Text;
-
-            Task.Run(async () =>
-            {
                 try
                 {
                     // run the query
                     MediClipClient client = new MediClipClient();
-                    bool result = await client.PostNote( pPatientID, theTitle,  text, theImage);
+                    //bool result =  
+                    client.PostNote( pPatientID, theTitle,  text, theImage);
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
@@ -105,7 +103,7 @@ namespace MediClip
                         DisplayAlert("Error", "Error retreiving patient note", "Okay");
                     });
                 }
-            });
+
 
 
         }
