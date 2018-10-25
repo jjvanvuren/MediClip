@@ -77,6 +77,8 @@ namespace MediClip
             }
         }
 
+
+        //Saving all information to the data base
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
             String text = this.entryField.Text;
@@ -93,7 +95,7 @@ namespace MediClip
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        //Navigation.PushAsync(new NotePage());
+                        Navigation.PushAsync(new MainPage());
                     });
                 }
                 catch
@@ -107,6 +109,7 @@ namespace MediClip
 
 
         }
+
         //All below code is for cleaning the notes section for text
         //Below code was borrowed from week 5 lab to enable the Accelerometer
         //and to disable to the accelerometer

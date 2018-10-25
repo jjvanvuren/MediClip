@@ -127,10 +127,10 @@ namespace MediClip.Client
         public async Task<bool> PostNote( int patientId, string title, String text, String Picture)
         {
 
-            String searchUrl = API_URL + "SaveNote= json{ PatientID: "+ Convert.ToString(patientId) +
-                                                        ", Title: "+ title +
-                                                        ", Text: "+ text +
-                                                        ", Picture: "+ Picture + "}";
+            String searchUrl = API_URL + "SaveNote { \"PatientID\": " + Convert.ToString(patientId) +
+                                                        ", \"Title\": \"" + title +
+                                                        "\", \"Text\": \"" + text +
+                                                        "\", \"Picture\": \"" + Picture + "\"}";
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(searchUrl);

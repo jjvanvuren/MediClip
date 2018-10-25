@@ -16,7 +16,8 @@
         <Label Text="Note Title:" />
 
 
-        <Entry Placeholder="Title"
+        <Entry x:Name="Title"
+           Placeholder="Title"
            MaxLength="255"
            Keyboard="Default" />
 
