@@ -37,6 +37,7 @@ namespace MediClip
         }
         private void Note_Clicked(object sender, System.EventArgs e)
         {
+            // 
             Task.Run(async () =>
             {
 
