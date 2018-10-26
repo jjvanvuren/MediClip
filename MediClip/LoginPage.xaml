@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MediClip.LoginPage">
+             x:Class="MediClip.LoginPage"
+             Title="Login">
+    
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="lblUserName" Text="Username:" />
-            <Entry x:Name="entUserName" Placeholder="Username" />
-            <Label x:Name="lblPassword" Text="Password:" />
-            <Entry x:Name="entPassword" Placeholder="Password" />
-            <Button x:Name="btnLogIn" Text="Log In" Clicked="LogIn_Clicked" />
+            <Label x:Name="lblUserName" Text="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
+            <Entry x:Name="entUserName" Placeholder="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
+            <Label x:Name="lblPassword" Text="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
+            <Entry x:Name="entPassword" Placeholder="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
+            <Button x:Name="btnLogIn" Text="Log In" Clicked="LogIn_Clicked" BackgroundColor="#127c54" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="150" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

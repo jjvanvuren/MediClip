@@ -111,7 +111,7 @@ namespace MediClip
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        Navigation.PushAsync(new MainPage());
+                        Navigation.PushAsync(new HomePage());
                     });
                 }
                 catch

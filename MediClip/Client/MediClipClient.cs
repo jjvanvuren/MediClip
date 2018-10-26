@@ -13,7 +13,7 @@ namespace MediClip.Client
     public class MediClipClient
     {
         //============================================= 
-        //Reference A2: Externally Sourced algorithms
+        //Reference B1: Externally Sourced algorithms
         //Purpose: To GET and POST information to and from API
         //Date: 23/10/2018
         //Source: Lecture Slides and Lab material
@@ -176,7 +176,7 @@ namespace MediClip.Client
 
         }
         //============================================= 
-        //End reference A2
+        //End reference B1
         //============================================= 
 
     }

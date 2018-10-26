@@ -19,7 +19,7 @@ namespace MediClip
 
         private void LogIn_Clicked(object sender, System.EventArgs e)
         {
-
+            Navigation.PushAsync(new HomePage());
 
             //MainPage = new NavigationPage(new MainPage())
             //{

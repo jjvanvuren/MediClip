@@ -11,16 +11,35 @@ using MediClip.Client;
 
 namespace MediClip
 {
-    public partial class MainPage : ContentPage
+    public partial class HomePage : ContentPage
     {
         private ListView wardList;
         private WardViewModel modWardViewModel = new WardViewModel();
         private ObservableCollection<Ward> wards = new ObservableCollection<Ward>();
 
-        public MainPage()
+        //============================================= 
+        //Reference C1: Externally Sourced algorithm
+        //Purpose: 
+        //Date: 26/10/2018
+        //Source: stackoverflow
+        //Author: Jesper Christensen
+        //URL: https://stackoverflow.com/questions/35862657/disabling-back-button-c-sharp-android-xamarin-code-not-responding
+        //Adaption Required: None
+        //=============================================
+
+        // Disable going back to the log in screen with hardware back button
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+        //============================================= 
+        //End reference C1
+        //============================================= 
+
+        public HomePage()
         {
             InitializeComponent();
-            
+
             BindingContext = modWardViewModel;
             wards = modWardViewModel.Wards;
 
@@ -70,7 +89,7 @@ namespace MediClip
                 }
             });
 
-            
+
         }
 
     }
