@@ -40,19 +40,32 @@ namespace MediClip
             Navigation.PushAsync(new MenuPage());
         }
 
+        //============================================= 
+        //Reference A1: Externally Sourced algorithm
+        //Purpose: Adds camera functionality to the form, the
+        //ability to add a picture taken with the phone
+        //Date: 15/10/2018
+        //Source: Xamarin help website
+        //Author: Adam Pedley
+        //URL: https://xamarinhelp.com/use-camera-take-photo-xamarin-forms/
+        //Adaption Required: Had to manually set permissions for camera use and install
+        //further nuget packages for the algorithm to  work correctly
+        //=============================================
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
 
+            // check if device has a camera or take photo function is supported
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                await DisplayAlert("No Camera", "No camera available.", "OK");
                 return;
             }
 
             var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
             var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 
+            // Check if camera permission is granted
             if (cameraStatus != PermissionStatus.Granted || storageStatus != PermissionStatus.Granted)
             {
                 var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera, Permission.Storage });
@@ -60,8 +73,10 @@ namespace MediClip
                 storageStatus = results[Permission.Storage];
             }
 
+            // Check if storage status is granted
             if (cameraStatus == PermissionStatus.Granted && storageStatus == PermissionStatus.Granted)
             {
+                // Store taken photo in the phones album
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
                     SaveToAlbum = true,
@@ -72,16 +87,19 @@ namespace MediClip
             else
             {
                 await DisplayAlert("Permissions Denied", "Unable to take photos.", "OK");
-                //On iOS you may want to send your user to the settings screen.
+                //If no permissions are granted send user to app settings to give them the chance to change permissions
                 CrossPermissions.Current.OpenAppSettings();
             }
         }
+        //============================================= 
+        //End reference A1
+        //============================================= 
 
 
         //Saving all information to the data base
         private void Submit_Clicked(object sender, System.EventArgs e)
         {
-            String text = this.entryField.Text;
+            String theText = this.entryField.Text;
             String theTitle = this.title.Text;
             String theImage = this.title.Text;
                 try
@@ -89,7 +107,7 @@ namespace MediClip
                     // run the query
                     MediClipClient client = new MediClipClient();
                     //bool result =  
-                    client.PostNote( pPatientID, theTitle,  text, theImage);
+                    client.PostNote( pPatientID, theTitle,  theText, theImage);
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
