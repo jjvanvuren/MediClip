@@ -12,8 +12,20 @@ namespace MediClip.Client
 {
     public class MediClipClient
     {
-            //const String API_KEY = "";
-            const String API_URL = "https://mediclipwebapi.azurewebsites.net/";
+        //============================================= 
+        //Reference A2: Externally Sourced algorithms
+        //Purpose: To GET and POST information to and from API
+        //Date: 
+        //Source: Lecture Slides and Lab material
+        //Author: Unknown
+        //URL: None
+        //Adaption Required: Had to adapt the algorithms to work with our API
+        //and change different aspects of it to work with our application e.g. Posting and getting lists. 
+        //=============================================
+        // PLEASE NOTE: WE MAY NEED TO ADD THE SOURCE WHERE WE GOT HOW TO POST TO THE SERVER HERE AS WELL
+
+        //const String API_KEY = "";
+        const String API_URL = "https://mediclipwebapi.azurewebsites.net/";
 
             // Get list of all wards from the API
             public async Task<List<Ward>> ListWard()
@@ -163,7 +175,9 @@ namespace MediClip.Client
             }*/
 
         }
-
+        //============================================= 
+        //End reference A2
+        //============================================= 
 
     }
 }
