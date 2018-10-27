@@ -22,6 +22,8 @@ namespace MediClip
         private Editor entryField;
         private int pPatientID;
         private Entry title;
+        private String pictureName;
+
 
         public AddNotePage(int patientID)
         {
@@ -64,7 +66,6 @@ namespace MediClip
 
             var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
             var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
-
             // Check if camera permission is granted
             if (cameraStatus != PermissionStatus.Granted || storageStatus != PermissionStatus.Granted)
             {
@@ -76,13 +77,23 @@ namespace MediClip
             // Check if storage status is granted
             if (cameraStatus == PermissionStatus.Granted && storageStatus == PermissionStatus.Granted)
             {
+                DateTime dt = DateTime.Now.ToLocalTime();
+                pictureName = Convert.ToString(dt.Hour) +
+                              Convert.ToString(dt.Minute) +
+                              Convert.ToString(dt.Second) +
+                              Convert.ToString(dt.Day) +
+                              Convert.ToString(dt.Month) +
+                              Convert.ToString(dt.Year);
                 // Store taken photo in the phones album
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
-                    SaveToAlbum = true,
-                    //Directory = "Sample",
-                    //Name = "test.jpg"
+                SaveToAlbum = true,
+                    Name = Convert.ToString(pPatientID)+ pictureName
                 });
+                if (file != null)
+                {
+                    PhotoImage.Source = ImageSource.FromStream(() => { return file.GetStream(); });
+                }
             }
             else
             {
@@ -101,7 +112,7 @@ namespace MediClip
         {
             String theText = this.entryField.Text;
             String theTitle = this.title.Text;
-            String theImage = this.title.Text;
+            String theImage = pictureName;
                 try
                 {
                     // run the query

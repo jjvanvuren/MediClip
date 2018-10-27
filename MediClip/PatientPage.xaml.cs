@@ -17,6 +17,7 @@ namespace MediClip
         private Label assignDateTo;
         private int patientID;
         private String dosageInformation;
+        private Image patientImage;
 
         public PatientPage(Patient incomingPatient)
         {
@@ -25,6 +26,7 @@ namespace MediClip
             this.gender = this.FindByName<Label>("Gender");
             this.assignDateFrom = this.FindByName<Label>("AssignDateFrom");
             this.assignDateTo = this.FindByName<Label>("AssignDateTo");
+            this.patientImage = this.FindByName<Image>("PatientPicture");
 
             name.Text = "Name: " + incomingPatient.FullName;
             gender.Text = "Gender: " + incomingPatient.Sex;
@@ -32,6 +34,12 @@ namespace MediClip
             assignDateTo.Text = "Discharge Date: " + incomingPatient.AssignDateTo;
             patientID = incomingPatient.PatientID;
             dosageInformation = incomingPatient.Dosage;
+            if(incomingPatient.Picture != "")
+            {
+                patientImage.Source = incomingPatient.Picture;
+            }else{
+                patientImage.Source = "blankPersonMale.png";
+            }
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

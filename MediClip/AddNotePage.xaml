@@ -11,7 +11,7 @@
                      Order="Primary"
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
-
+    <ScrollView>
     <StackLayout>
         <Label Text="Note Title:" />
 
@@ -22,7 +22,6 @@
            Keyboard="Default" />
 
         <Label Text="Note:" />
-
 
         <Editor x:Name="NoteArea" MaxLength="255"
            Keyboard="Default" />
@@ -45,5 +44,5 @@
                 WidthRequest="150"
                 Clicked="Submit_Clicked"/>
     </StackLayout>
-    
+    </ScrollView>
 </ContentPage>
