@@ -24,6 +24,12 @@ namespace MediClip
             this.Password = this.FindByName<Entry>("entPassword");
         }
 
+        // Disable going back to the log in screen with hardware back button
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         private void LogIn_Clicked(object sender, System.EventArgs e)
         {
 

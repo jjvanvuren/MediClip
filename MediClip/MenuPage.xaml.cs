@@ -21,5 +21,10 @@ namespace MediClip
         {
             Navigation.PushAsync(new HomePage());
         }
+
+        private void Logout_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
     }
 }

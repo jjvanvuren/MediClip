@@ -23,6 +23,13 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"
                 Clicked="SearchPatient_Clicked" />
+        <Button Text="Logout"
+                BackgroundColor="#127c54"
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="150"
+                Clicked="Logout_Clicked" />
         
     </StackLayout>
 </ContentPage>
