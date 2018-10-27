@@ -6,9 +6,25 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="entUserName" Placeholder="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
-            <Entry x:Name="entPassword" Placeholder="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
-            <Button x:Name="btnLogIn" Text="Log In" Clicked="LogIn_Clicked" BackgroundColor="#127c54" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="150" />
+            <Entry x:Name="entUserName" 
+                   Placeholder="Username" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
+                   WidthRequest="400" />
+            <Entry x:Name="entPassword" 
+                   Placeholder="Password" 
+                   IsPassword="True" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start"
+                   WidthRequest="400" />
+            <Button x:Name="btnLogIn" 
+                    Text="Log In" 
+                    Clicked="LogIn_Clicked" 
+                    BackgroundColor="#127c54" 
+                    TextColor="White" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" 
+                    WidthRequest="150" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
