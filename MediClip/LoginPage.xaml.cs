@@ -64,15 +64,7 @@ namespace MediClip
                         DisplayAlert("Error", "Error retrieving login details", "Okay");
                     });
                 }
-
-
             });
-            //MainPage = new NavigationPage(new MainPage())
-            //{
-            //    BarBackgroundColor = Color.FromHex("#127c54"),
-            //    BarTextColor = Color.White,
-            //    BackgroundColor = Color.WhiteSmoke,
-            //};
         }
     }
 }
