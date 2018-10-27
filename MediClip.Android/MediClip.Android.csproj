@@ -120,6 +120,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\HamburgerIconWhite.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\mediclip_logo.png" />
+  </ItemGroup>
   <Import Project="..\MediClip\MediClip.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

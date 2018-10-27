@@ -6,7 +6,11 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="MediClipLogo" Source="mediclip_icon.svg"/>
+            <Image x:Name="MediClipLogo"
+                   Source="mediclip_logo.png"
+                   Margin="50"
+                   HeightRequest="150"
+                   WidthRequest="150"/>
             <Entry x:Name="entUserName" 
                    Placeholder="Username" 
                    HorizontalOptions="CenterAndExpand" 
