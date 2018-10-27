@@ -26,7 +26,7 @@ namespace MediClip
 
             title.Text = incomingNote.Title;
             text.Text = incomingNote.Text;
-            noteImage.Source = incomingNote.Picture;
+            noteImage.Source = ImageSource.FromFile(incomingNote.Picture);
         }
 
         private void Handle_Activated(object sender, System.EventArgs e)

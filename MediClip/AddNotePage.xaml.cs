@@ -78,7 +78,8 @@ namespace MediClip
             if (cameraStatus == PermissionStatus.Granted && storageStatus == PermissionStatus.Granted)
             {
                 DateTime dt = DateTime.Now.ToLocalTime();
-                pictureName = Convert.ToString(dt.Hour) +
+                pictureName = Convert.ToString(pPatientID) +
+                              Convert.ToString(dt.Hour) +
                               Convert.ToString(dt.Minute) +
                               Convert.ToString(dt.Second) +
                               Convert.ToString(dt.Day) +
@@ -88,8 +89,10 @@ namespace MediClip
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
                 SaveToAlbum = true,
-                    Name = Convert.ToString(pPatientID)+ pictureName
+                    Name = pictureName
                 });
+                var path = file.Path;
+                pictureName = path;
                 if (file != null)
                 {
                     PhotoImage.Source = ImageSource.FromStream(() => { return file.GetStream(); });

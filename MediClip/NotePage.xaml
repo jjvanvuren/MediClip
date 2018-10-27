@@ -12,7 +12,7 @@
                      Order="Primary"
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
-
+    <ScrollView>
     <StackLayout>
         <Label x:Name="Title" Margin="5" />
         <Label Text="Note:" Margin="5"/>
@@ -20,4 +20,5 @@
 
         <Image x:Name="PhotoImage" />
     </StackLayout>
+    </ScrollView>
 </ContentPage>
