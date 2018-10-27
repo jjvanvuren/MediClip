@@ -118,7 +118,7 @@ namespace MediClip
                 {
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        DisplayAlert("Error", "Error retreiving patient note", "Okay");
+                        DisplayAlert("Error", "Error uploading patient note", "Okay");
                     });
                 }
 

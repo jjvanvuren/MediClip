@@ -6,10 +6,8 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="lblUserName" Text="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
-            <Entry x:Name="entUserName" Placeholder="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
-            <Label x:Name="lblPassword" Text="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
-            <Entry x:Name="entPassword" Placeholder="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="5" />
+            <Entry x:Name="entUserName" Placeholder="Username" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
+            <Entry x:Name="entPassword" Placeholder="Password" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
             <Button x:Name="btnLogIn" Text="Log In" Clicked="LogIn_Clicked" BackgroundColor="#127c54" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="150" />
         </StackLayout>
     </ContentPage.Content>

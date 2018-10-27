@@ -136,6 +136,28 @@ namespace MediClip.Client
 
         }
 
+        // Get Nurse from the API by UserName
+        public async Task<Nurse> GetNurse(string sNurseUserName)
+        {
+
+            String searchUrl = API_URL + "GetNurse?uname=" + sNurseUserName;
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                String content = await response.Content.ReadAsStringAsync();
+                Nurse singleNurse = JsonConvert.DeserializeObject<Nurse>(content);
+
+                return singleNurse;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
+
+        }
+
         // Posting Note for Patient to the API BY ID
         public void PostNote( int patientId, string title, String text, String incomingPicture)
         {
