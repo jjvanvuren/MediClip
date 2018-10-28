@@ -116,28 +116,25 @@ namespace MediClip
             String theText = this.entryField.Text;
             String theTitle = this.title.Text;
             String theImage = pictureName;
-                try
+            try
+            {
+                // run the query
+                MediClipClient client = new MediClipClient();
+                //bool result =  
+                client.PostNote( pPatientID, theTitle,  theText, theImage);
+
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    // run the query
-                    MediClipClient client = new MediClipClient();
-                    //bool result =  
-                    client.PostNote( pPatientID, theTitle,  theText, theImage);
-
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        Navigation.PushAsync(new HomePage());
-                    });
-                }
-                catch
+                    Navigation.PushAsync(new HomePage());
+                });
+            }
+            catch
+            {
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        DisplayAlert("Error", "Error uploading patient note", "Okay");
-                    });
-                }
-
-
-
+                    DisplayAlert("Error", "Error uploading patient note", "Okay");
+                });
+            }
         }
 
         //All below code is for cleaning the notes section for text

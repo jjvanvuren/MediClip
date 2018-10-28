@@ -1,6 +1,7 @@
 ﻿using System;
 namespace MediClip.Models
 {
+    // Purpose: Used to POST and GET Note data from the SQL server
     public class Note
     {
             public int NoteID { get; set; }

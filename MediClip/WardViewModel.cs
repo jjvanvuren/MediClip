@@ -23,38 +23,26 @@ namespace MediClip
             }
         }
 
-        
-
         public WardViewModel()
         {
+            // The ObservableCollection that contains the wards returned by the client
             wards = new ObservableCollection<Ward>();
 
-            // Run the task in the background (as it may take a long time)
+            // Runs the task in the background (as it may take a long time)
             Task.Run(async () =>
             {
                 // Create a new client
                 MediClipClient client = new MediClipClient();
 
-
-                // Perform the search operation
+                // Create a list of all the wards returned by the client
                 List<Ward> result = await client.ListWard();
 
+                // Add all the wards to the wards ObservableCollection
                 foreach (Ward wWard in result)
                 {
                     wards.Add(wWard);
                 }
-
             });
-
-
-            //Wards = new ObservableCollection<Ward>();
-
-            //DataWard dWardList = new DataWard();
-
-            //foreach (var ward in _context.Wards)
-            //{
-            //    Wards.Add(ward);
-            //}
         }
     }
 }

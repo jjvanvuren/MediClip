@@ -28,11 +28,13 @@ namespace MediClip
 
         }
 
+        // Displays the menu when the user clicks the hamburger menu
         private void Handle_Activated(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MenuPage());
         }
 
+        // Displays the patients details
         private void Patient_Clicked(object sender, System.EventArgs e)
         {
             Task.Run(async () =>

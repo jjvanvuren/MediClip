@@ -13,6 +13,7 @@ namespace MediClip
 
             MainPage = new NavigationPage(new LoginPage())
             {
+                // Set the toolbar colours to MediClips colours
                 BarBackgroundColor = Color.FromHex("#127c54"),
                 BarTextColor = Color.White,
                 BackgroundColor = Color.WhiteSmoke,

@@ -10,7 +10,6 @@ using Xamarin.Forms.Xaml;
 
 namespace MediClip
 {
-	//[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NotePage : ContentPage
 	{
         private Label title;

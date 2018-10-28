@@ -23,8 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)DataPatient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataWard.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -55,7 +53,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)PatientPage.xaml.cs">
       <DependentUpon>PatientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)PatientViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WardViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\MediClipClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Ward.cs" />

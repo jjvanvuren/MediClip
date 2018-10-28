@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.AddNotePage"
              Title="New Note">
+
+    <!--Items to be displayed on the toolbar-->
     <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
         <ToolbarItem Text="Menu"
                      Icon="HamburgerIconWhite.png"
                      Priority="0"
@@ -11,38 +14,47 @@
                      Order="Primary"
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
+
+    <!--Page used to add a new note for a patient-->
     <ScrollView>
-    <StackLayout>
-        <Label Text="Note Title:" />
+        <StackLayout>
+            <Label Text="Note Title:" />
 
+            <!--Area for user to enter note title-->
+            <Entry x:Name="Title"
+                   Placeholder="Title"
+                   MaxLength="255"
+                   Keyboard="Default" />
 
-        <Entry x:Name="Title"
-           Placeholder="Title"
-           MaxLength="255"
-           Keyboard="Default" />
+            <Label Text="Note:" />
+        
+            <!--Area for user to enter note text-->
+            <Editor x:Name="NoteArea"
+                    MaxLength="255"
+                    Keyboard="Default"
+                    VerticalOptions="Center"
+                    HeightRequest="200" />
 
-        <Label Text="Note:" />
+            <!--The image to be added to the note-->
+            <Image x:Name="PhotoImage" />
 
-        <Editor x:Name="NoteArea" MaxLength="255"
-           Keyboard="Default" VerticalOptions="Center" HeightRequest="200"/>
+            <!--Used to take a photo to be added to the note-->
+            <Button Text="Add Photo"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    x:Name="CameraButton"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"/>
 
-        <Image x:Name="PhotoImage" />
-
-        <Button Text="Add Photo"
-                BackgroundColor="#127c54"
-                TextColor="White"
-                x:Name="CameraButton"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                WidthRequest="150"/>
-
-        <Button Text="Submit"
-                BackgroundColor="#127c54"
-                TextColor="White"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                WidthRequest="150"
-                Clicked="Submit_Clicked"/>
-    </StackLayout>
+            <!--Used submit the note to the database-->
+            <Button Text="Submit"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Submit_Clicked"/>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -22,74 +22,71 @@ namespace MediClip.Client
         //Adaption Required: Had to adapt the algorithms to work with our API
         //and change different aspects of it to work with our application e.g. Posting and getting lists. 
         //=============================================
-        // PLEASE NOTE: WE MAY NEED TO ADD THE SOURCE WHERE WE GOT HOW TO POST TO THE SERVER HERE AS WELL
 
-        //const String API_KEY = "";
-        const String API_URL = "https://mediclipwebapi.azurewebsites.net/"; //API URL that is used to get/post all information
+        //API URL that is used to GET/POST all information
+        const String API_URL = "https://mediclipwebapi.azurewebsites.net/"; 
 
-            // Get list of all wards from the API
-            public async Task<List<Ward>> ListWard()
+        // Get list of all wards from the API
+        public async Task<List<Ward>> ListWard()
+        {
+
+            String searchUrl = API_URL + "GetAllWards";
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
             {
+                String content = await response.Content.ReadAsStringAsync();
+                List<Ward> Wards = JsonConvert.DeserializeObject<List<Ward>>(content);
 
-                String searchUrl = API_URL + "GetAllWards";
-                HttpClient client = new HttpClient();
-
-                HttpResponseMessage response = await client.GetAsync(searchUrl);
-                if (response.IsSuccessStatusCode)
-                {
-                    String content = await response.Content.ReadAsStringAsync();
-                    List<Ward> Wards = JsonConvert.DeserializeObject<List<Ward>>(content);
-
-                    return Wards;
-                }
-                else
-                {
-                    throw new Exception($"Client returned response code of {response.StatusCode}");
-                }
-
+                return Wards;
             }
-
-            // Get list of all Patients from the API
-            public async Task<List<Patient>> ListPatient(int id)
+            else
             {
-
-                String searchUrl = API_URL + "GetWardPatients?id=" + Convert.ToString(id);
-                HttpClient client = new HttpClient();
-
-                HttpResponseMessage response = await client.GetAsync(searchUrl);
-                if (response.IsSuccessStatusCode)
-                {
-                    String content = await response.Content.ReadAsStringAsync();
-                    List<Patient> Patients = JsonConvert.DeserializeObject<List<Patient>>(content);
-
-                    return Patients;
-                }
-                else
-                {
-                    throw new Exception($"Client returned response code of {response.StatusCode}");
-                }
-
+                throw new Exception($"Client returned response code of {response.StatusCode}");
             }
-            // Get Patient from the API BY ID
-            public async Task<Patient> PatientByID(int wardId, int patientId)
+        }
+
+        // Get list of all Patients from the API
+        public async Task<List<Patient>> ListPatient(int id)
+        {
+
+            String searchUrl = API_URL + "GetWardPatients?id=" + Convert.ToString(id);
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
             {
+                String content = await response.Content.ReadAsStringAsync();
+                List<Patient> Patients = JsonConvert.DeserializeObject<List<Patient>>(content);
 
-                String searchUrl = API_URL + "GetPatient?wId=" + Convert.ToString(wardId) + "&pId=" + Convert.ToString(patientId);
-                HttpClient client = new HttpClient();
+                return Patients;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
+        }
 
-                HttpResponseMessage response = await client.GetAsync(searchUrl);
-                if (response.IsSuccessStatusCode)
-                {
-                    String content = await response.Content.ReadAsStringAsync();
-                    Patient patient = JsonConvert.DeserializeObject<Patient>(content);
+        // Get Patient from the API BY ID
+        public async Task<Patient> PatientByID(int wardId, int patientId)
+        {
 
-                    return patient;
-                }
-                else
-                {
-                    throw new Exception($"Client returned response code of {response.StatusCode}");
-                }
+            String searchUrl = API_URL + "GetPatient?wId=" + Convert.ToString(wardId) + "&pId=" + Convert.ToString(patientId);
+            HttpClient client = new HttpClient();
 
+            HttpResponseMessage response = await client.GetAsync(searchUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                String content = await response.Content.ReadAsStringAsync();
+                Patient patient = JsonConvert.DeserializeObject<Patient>(content);
+
+                return patient;
+            }
+            else
+            {
+                throw new Exception($"Client returned response code of {response.StatusCode}");
+            }
         }
 
         // Get Notes for Patient from the API BY ID
@@ -111,7 +108,6 @@ namespace MediClip.Client
             {
                 throw new Exception($"Client returned response code of {response.StatusCode}");
             }
-
         }
 
         // Get Note for Patient from the API BY ID
@@ -133,7 +129,6 @@ namespace MediClip.Client
             {
                 throw new Exception($"Client returned response code of {response.StatusCode}");
             }
-
         }
 
         // Get Nurse from the API by UserName
@@ -155,20 +150,37 @@ namespace MediClip.Client
             {
                 throw new Exception($"Client returned response code of {response.StatusCode}");
             }
-
         }
+
+        //============================================= 
+        //End reference B1
+        //============================================= 
+
+        //============================================= 
+        //Reference B2: Externally Sourced algorithms
+        //Purpose: To POST information to the API
+        //Date: 25/10/2018
+        //Source: stackoverflow
+        //Author: Ademar
+        //URL: https://stackoverflow.com/questions/9145667/how-to-post-json-to-a-server-using-c
+        //Adaption Required: Had to adapt the algorithms to work with our API
+        //=============================================
 
         // Posting Note for Patient to the API BY ID
         public void PostNote( int patientId, string title, String text, String incomingPicture)
         {
+            // Create the query to be sent to the server
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(API_URL+ "SaveNote");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
+
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
+                // The query in JSON format to be sent to the API
                 string json = "{ \"PatientID\": " + Convert.ToString(patientId) +", \"Title\": \"" + title +"\", \"Text\": \"" + text +"\", \"Picture\": \"" + incomingPicture + "\"}";
 
+                // Send the query to the API and close the connection
                 streamWriter.Write(json);
                 streamWriter.Flush();
                 streamWriter.Close();
@@ -179,28 +191,11 @@ namespace MediClip.Client
             {
                 var result = streamReader.ReadToEnd();
             }
-            /*String searchUrl = API_URL + "SaveNote{ \"PatientID\": " + Convert.ToString(patientId) +
-                                                        ", \"Title\": \"" + title +
-                                                        "\", \"Text\": \"" + text +
-                                                        "\", \"Picture\": \"" + Picture + "\"}";*/
-
-            /*HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(searchUrl);
-            if (response.IsSuccessStatusCode)
-            {
-
-                return true;
-            }
-            else
-            {
-                throw new Exception($"Client returned response code of {response.StatusCode}");
-            }*/
-
         }
-        //============================================= 
-        //End reference B1
-        //============================================= 
 
+        //============================================= 
+        //End reference B2
+        //============================================= 
     }
 }
 

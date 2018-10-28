@@ -4,12 +4,15 @@ using System.Text;
 
 namespace MediClip.Models
 {
+    // Purpose: Used to POST and GET Patient data from the SQL server
     public class Patient
     {
+        // Private attributes
         private String myFirstName;
         private String myLastName;
         private String myPicture;
 
+        // Public properties
         public int PatientID { get; set; }
         public int WardID { get; set; }
         public String AssignDateFrom { get; set; }
@@ -50,6 +53,7 @@ namespace MediClip.Models
 
             set
             {
+                // If there is no picture associated with the patient use the default image
                 if (!value.Equals(""))
                 {
                     myPicture = value;
@@ -62,10 +66,9 @@ namespace MediClip.Models
             }
         }
 
-
+        // Concatination of the Patient FirstName and LastName for display purposes
         public String FullName
         {
-
             get
             {
                 return myFirstName + " " + myLastName;

@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.NotePage"
              Title="Note">
-    
+
+    <!--Items to be displayed on the toolbar-->
     <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
         <ToolbarItem Text="Menu"
                      Icon="HamburgerIconWhite.png"
                      Priority="0"
@@ -12,13 +14,22 @@
                      Order="Primary"
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
-    <ScrollView>
-    <StackLayout>
-        <Label x:Name="Title" Margin="5" />
-        <Label Text="Note:" Margin="5"/>
-        <Label x:Name="NoteText" Margin="5"/>
 
-        <Image x:Name="PhotoImage" />
-    </StackLayout>
+    <!--Displays the selected patient note-->
+    <ScrollView>
+        <StackLayout>
+            <Label x:Name="Title"
+               Margin="5"
+               FontAttributes="Bold"
+               FontSize="Large" />
+            <Label Text="Note:"
+               Margin="5"
+               FontAttributes="Bold" />
+            <Label x:Name="NoteText"
+               Margin="5" />
+        
+            <!--Displays the note photo (if one is available)-->
+            <Image x:Name="PhotoImage" />
+        </StackLayout>
     </ScrollView>
 </ContentPage>

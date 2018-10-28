@@ -60,7 +60,6 @@ namespace MediClip
 
             Task.Run(async () =>
             {
-
                 // Get selected ward id
                 Ward selectedItem = this.wardList.SelectedItem as Ward;
                 int wWardID = selectedItem.WardID;
@@ -80,7 +79,7 @@ namespace MediClip
                         Navigation.PushAsync(new PatientListPage(patientList));
                     });
                 }
-                catch
+                catch // If the query fails display an error message
                 {
                     Device.BeginInvokeOnMainThread(() =>
                     {
@@ -88,9 +87,6 @@ namespace MediClip
                     });
                 }
             });
-
-
         }
-
     }
 }

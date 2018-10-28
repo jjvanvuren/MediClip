@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediClip.PatientListPage"
-             Title="Assigned Patients">
-    
+             Title="Patients">
+
+    <!--Items to be displayed on the toolbar-->
     <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
         <ToolbarItem Text="Menu"
                      Icon="HamburgerIconWhite.png"
                      Priority="0"
@@ -13,7 +15,7 @@
                      Activated="Handle_Activated" />
     </ContentPage.ToolbarItems>
 
-    <!--A List of the wards-->
+    <!--A List of the patients in the ward-->
     <ListView x:Name="Patients"
               HasUnevenRows="True"
               BackgroundColor="#ecf0f1"

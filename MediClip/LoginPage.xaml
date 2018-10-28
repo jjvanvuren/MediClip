@@ -4,7 +4,8 @@
              x:Class="MediClip.LoginPage"
              NavigationPage.HasBackButton="False"
              Title="Login">
-    
+  
+    <!--Page used for user login-->
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -13,17 +14,23 @@
                    Margin="50"
                    HeightRequest="150"
                    WidthRequest="150"/>
+              
+                <!--Field for entering username-->
                 <Entry x:Name="entUserName" 
                    Placeholder="Username" 
                    HorizontalOptions="CenterAndExpand" 
                    VerticalOptions="Start" 
                    WidthRequest="400" />
+              
+                <!--Field for entering password-->
                 <Entry x:Name="entPassword" 
                    Placeholder="Password" 
                    IsPassword="True" 
                    HorizontalOptions="CenterAndExpand" 
                    VerticalOptions="Start"
                    WidthRequest="400" />
+              
+                <!--Used to login the user-->
                 <Button x:Name="btnLogIn" 
                     Text="Log In" 
                     Clicked="LogIn_Clicked" 

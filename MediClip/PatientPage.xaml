@@ -4,7 +4,9 @@
              x:Class="MediClip.PatientPage"
              Title="Patient Details">
 
+    <!--Items to be displayed on the toolbar-->
     <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
         <ToolbarItem Text="Menu"
                      Icon="HamburgerIconWhite.png"
                      Priority="0"

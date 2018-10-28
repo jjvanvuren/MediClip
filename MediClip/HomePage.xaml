@@ -6,7 +6,9 @@
              NavigationPage.HasBackButton="False"
              Title="Home Page">
 
+    <!--Items to be displayed on the toolbar-->
     <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
         <ToolbarItem Text="Menu"
                      Icon="HamburgerIconWhite.png"
                      Priority="0"
@@ -23,21 +25,21 @@
               HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
               ItemTapped="Ward_Clicked">
+        <!--Template used for listing a ward-->
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <!--<ViewCell.ContextActions>
-                        <MenuItem Clicked="Patient_Clicked" />
-                    </ViewCell.ContextActions>-->
                     <StackLayout Margin="6,4,6,4"
                                  BackgroundColor="White">
-                        <Label Text="{Binding Name}"
-                           Margin="8"
-                           FontAttributes="Bold"
-                           FontSize="Medium" />
+                        <!--Binds to ward name-->
+                        <Label Text="{Binding Name}" 
+                               Margin="8"
+                               FontAttributes="Bold"
+                               FontSize="Medium" />
+                        <!--Binds to ward description-->
                         <Label Text="{Binding Description}"
-                           Margin="8,2,8,4"
-                           FontSize="Small" />
+                               Margin="8,2,8,4"
+                               FontSize="Small" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

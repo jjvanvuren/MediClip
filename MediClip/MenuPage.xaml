@@ -4,11 +4,14 @@
              x:Class="MediClip.MenuPage"
              Title="Menu">
 
+    <!--Displayed when hamburger menu is tapped-->
     <StackLayout>
         <Label Text="Select menu option below:"
                HorizontalOptions="Center"
                VerticalOptions="Start"
-               Margin="0,20,0,0"/>
+               Margin="0,20,0,0" />
+        
+        <!--Returns to HomePage-->
         <Button Text="Home Page"
                 BackgroundColor="#127c54"
                 TextColor="White"
@@ -16,13 +19,8 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"
                 Clicked="ReturnHome_Clicked" />
-        <Button Text="View Assigned Patients"
-                BackgroundColor="#127c54"
-                TextColor="White"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                WidthRequest="150"
-                Clicked="SearchPatient_Clicked" />
+
+        <!--Logout the user-->
         <Button Text="Logout"
                 BackgroundColor="#127c54"
                 TextColor="White"
