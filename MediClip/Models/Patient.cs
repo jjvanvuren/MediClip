@@ -8,6 +8,7 @@ namespace MediClip.Models
     {
         private String myFirstName;
         private String myLastName;
+        private String myPicture;
 
         public int PatientID { get; set; }
         public int WardID { get; set; }
@@ -40,9 +41,28 @@ namespace MediClip.Models
         public String Dob { get; set; }
         public String Sex { get; set; }
         public String Dosage { get; set; }
-        public String Picture { get; set; }
+        public String Picture
+        {
+            get
+            {
+                return myPicture;
+            }
 
-        
+            set
+            {
+                if (!value.Equals(""))
+                {
+                    myPicture = value;
+                }
+                else
+                {
+                    myPicture = "blankPersonMale.png";
+                }
+                
+            }
+        }
+
+
         public String FullName
         {
 
