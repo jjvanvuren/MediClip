@@ -24,7 +24,7 @@
         <Label Text="Note:" />
 
         <Editor x:Name="NoteArea" MaxLength="255"
-           Keyboard="Default" />
+           Keyboard="Default" VerticalOptions="Center" HeightRequest="200"/>
 
         <Image x:Name="PhotoImage" />
 

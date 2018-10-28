@@ -18,6 +18,7 @@ namespace MediClip
         private int patientID;
         private String dosageInformation;
         private Image patientImage;
+        private Label dob;
 
         public PatientPage(Patient incomingPatient)
         {
@@ -27,8 +28,10 @@ namespace MediClip
             this.assignDateFrom = this.FindByName<Label>("AssignDateFrom");
             this.assignDateTo = this.FindByName<Label>("AssignDateTo");
             this.patientImage = this.FindByName<Image>("PatientPicture");
+            this.dob = this.FindByName<Label>("DoB");
 
             name.Text = "Name: " + incomingPatient.FullName;
+            dob.Text = "Date of Birth: " + incomingPatient.Dob;
             gender.Text = "Gender: " + incomingPatient.Sex;
             assignDateFrom.Text = "Assigned Date: " + incomingPatient.AssignDateFrom;
             assignDateTo.Text = "Discharge Date: " + incomingPatient.AssignDateTo;

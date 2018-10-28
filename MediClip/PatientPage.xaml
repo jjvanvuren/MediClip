@@ -21,6 +21,10 @@
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
                    Margin="5" />
+            <Label x:Name= "DoB"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />  
             <Label x:Name= "Gender"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
