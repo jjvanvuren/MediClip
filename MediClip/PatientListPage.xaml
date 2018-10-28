@@ -23,9 +23,9 @@
               ItemTapped="Patient_Clicked">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell Text="{Binding PatientID}"
-                            Detail="{Binding FullName}"
-                            ImageSource="blankPersonMale.png">
+                <ImageCell  x:Name="PatientsPicture"
+                            Text="{Binding PatientID}"
+                            Detail="{Binding FullName}">
                 </ImageCell>
             </DataTemplate>
         </ListView.ItemTemplate>

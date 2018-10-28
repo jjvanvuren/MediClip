@@ -15,13 +15,24 @@ namespace MediClip
     public partial class PatientListPage : ContentPage
     {
         private ListView patientList;
+        private ImageCell patientImage;
 
         public PatientListPage(ObservableCollection<Patient> patients)
         {
             InitializeComponent();
 
             this.patientList = this.FindByName<ListView>("Patients");
+            this.patientImage = this.FindByName<ImageCell>("PatientsPicture");
             this.patientList.ItemsSource = patients;
+            /*foreach(Patient patient in patients)
+            {
+                if (!patient.Picture.Equals(""))
+                {
+                    this.patientImage.ImageSource = patient.Picture;
+                }else{
+                    this.patientImage.ImageSource = "blankPersonMale.png";
+                }
+            }*/
 
         }
 
