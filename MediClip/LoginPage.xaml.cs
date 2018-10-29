@@ -14,12 +14,14 @@ namespace MediClip
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        //creating Xaml link variables
         private Entry UserName;
         private Entry Password;
 
         public LoginPage()
         {
             InitializeComponent();
+            //linking Xaml link variables to Xaml objects
             this.UserName = this.FindByName<Entry>("entUserName");
             this.Password = this.FindByName<Entry>("entPassword");
         }
@@ -30,6 +32,7 @@ namespace MediClip
             return true;
         }
 
+        //Event Handler to handle Login submission
         private void LogIn_Clicked(object sender, System.EventArgs e)
         {
 

@@ -13,35 +13,40 @@ namespace MediClip
 {
 	public partial class NoteListPage : ContentPage
 	{
+        //creating Xaml link variables
         private ListView listOfNotes;
-        private ObservableCollection<Note> patient;
+        private int patient;
 
-        public NoteListPage (ObservableCollection<Note> patients)
+        public NoteListPage (ObservableCollection<Note> patients, int PatientId)
 		{
 			InitializeComponent ();
+            //linking Xaml link variables to Xaml objects
             this.listOfNotes = this.FindByName<ListView>("ListView");
 
             this.listOfNotes.ItemsSource = patients;
-            patient = patients;
+            patient = PatientId;
         }
 
+        //Event Handler when menu button is pressed
         private void Handle_Activated(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MenuPage());
         }
 
+        //Event Handler when addNote is pressed to go to addNotePage
         private void AddNote_Clicked(object sender, System.EventArgs e)
         {
-                int pPatientID = patient[1].PatientID;
-                Navigation.PushAsync(new AddNotePage(pPatientID));
+                Navigation.PushAsync(new AddNotePage(patient));
         }
+
+        //Event Handler when a note from the list is clicked to view selected note
         private void Note_Clicked(object sender, System.EventArgs e)
         {
-            // 
+             
             Task.Run(async () =>
             {
 
-                // Get selected person id
+                // Get selected person id and note Id to get a Note
                 Note selectedItem = this.listOfNotes.SelectedItem as Note;
                 int pPatientID = selectedItem.PatientID;
                 int noteID = selectedItem.NoteID;

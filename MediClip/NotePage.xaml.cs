@@ -31,6 +31,7 @@ namespace MediClip
             noteImage.Source = ImageSource.FromFile(incomingNote.Picture);
         }
 
+        //Event Handler when menu button is pressed
         private void Handle_Activated(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MenuPage());

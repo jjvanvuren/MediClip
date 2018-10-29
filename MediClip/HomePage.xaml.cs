@@ -13,6 +13,7 @@ namespace MediClip
 {
     public partial class HomePage : ContentPage
     {
+        //creating Xaml link variables
         private ListView wardList;
         private WardViewModel modWardViewModel = new WardViewModel();
         private ObservableCollection<Ward> wards = new ObservableCollection<Ward>();
@@ -42,7 +43,7 @@ namespace MediClip
 
             BindingContext = modWardViewModel;
             wards = modWardViewModel.Wards;
-
+            //linking Xaml link variable to Xaml objects
             this.wardList = this.FindByName<ListView>("ListView");
 
             this.wardList.ItemsSource = wards;

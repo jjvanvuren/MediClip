@@ -11,6 +11,7 @@ namespace MediClip
 {
     public partial class PatientPage : ContentPage
     {
+        //Creating private xaml display variables
         private Label name;
         private Label gender;
         private Label assignDateFrom;
@@ -23,6 +24,7 @@ namespace MediClip
         public PatientPage(Patient incomingPatient)
         {
             InitializeComponent();
+            //linking Xaml link variables to Xaml objects
             this.name = this.FindByName<Label>("FullName");
             this.gender = this.FindByName<Label>("Gender");
             this.assignDateFrom = this.FindByName<Label>("AssignDateFrom");
@@ -30,6 +32,7 @@ namespace MediClip
             this.patientImage = this.FindByName<Image>("PatientPicture");
             this.dob = this.FindByName<Label>("DoB");
 
+            //Outputting all vaibles to correct locations in xaml
             name.Text = "Name: " + incomingPatient.FullName;
             dob.Text = "Date of Birth: " + incomingPatient.Dob;
             gender.Text = "Gender: " + incomingPatient.Sex;
@@ -45,11 +48,13 @@ namespace MediClip
             }
         }
 
+        //Event Handler when menu button is pressed
         private void Handle_Activated(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MenuPage());
         }
 
+        //Event Handler when note button is clicket to see patients notes.
         private void Notes_Clicked(object sender, System.EventArgs e)
         {
             ObservableCollection<Note> patientNotes = new ObservableCollection<Note>();
@@ -68,7 +73,7 @@ namespace MediClip
                         {
                             patientNotes.Add(notes);
                         }
-                        Navigation.PushAsync(new NoteListPage(patientNotes));
+                        Navigation.PushAsync(new NoteListPage(patientNotes, patientID));
                     });
                 }
                 catch
@@ -81,6 +86,7 @@ namespace MediClip
             });
         }
 
+        //Event Handler to view Patients dosageInformation
         private void Dosage_Clicked(object sender, System.EventArgs e)
         {
             DisplayAlert("Dosage Information", dosageInformation, "OK");

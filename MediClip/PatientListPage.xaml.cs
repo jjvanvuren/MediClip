@@ -14,13 +14,14 @@ namespace MediClip
 {
     public partial class PatientListPage : ContentPage
     {
+        //creating Xaml link variables
         private ListView patientList;
         private ImageCell patientImage;
 
         public PatientListPage(ObservableCollection<Patient> patients)
         {
             InitializeComponent();
-
+            //linking Xaml link variables to Xaml objects
             this.patientList = this.FindByName<ListView>("Patients");
             this.patientImage = this.FindByName<ImageCell>("PatientPicture");
             this.patientList.ItemsSource = patients;

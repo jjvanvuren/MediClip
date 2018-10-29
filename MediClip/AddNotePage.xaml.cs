@@ -19,9 +19,10 @@ namespace MediClip
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddNotePage : ContentPage
     {
+        //creating Xaml link variables
         private Editor entryField;
-        private int pPatientID;
         private Entry title;
+        private int pPatientID;
         private String pictureName;
 
 
@@ -29,6 +30,7 @@ namespace MediClip
         {
             InitializeComponent();
 
+            //linking Xaml link variables to Xaml objects
             CameraButton.Clicked += CameraButton_Clicked;
             this.entryField = this.FindByName<Editor>("NoteArea");
             this.title = this.FindByName<Entry>("Title");
