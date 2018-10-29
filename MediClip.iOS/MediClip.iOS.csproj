@@ -159,18 +159,6 @@
     <ImageAsset Include="Assets.xcassets\blankPersonMale.png.imageset\blankPersonMale2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross1x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\blankPersonMale.png.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -183,25 +171,19 @@
     <ImageAsset Include="Assets.xcassets\HamburgerIconWhite.png.imageset\Hamburger_icon_white2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HamburgerIconWhite.png.imageset\Hamburger_icon_white3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\icon_ios_300.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\icon_ios_600.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\icon_ios_900.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross1x.jpeg" />
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross2x.jpeg" />
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross.jpeg" />
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo1x.png" />
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo2x.png" />
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo3x.png" />
+    <ImageAsset Include="Assets.xcassets\HamburgerIconWhite.png.imageset\HamburgerIconWhite.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -227,6 +209,10 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\bobross.jpeg.imageset\" />
+    <Folder Include="Assets.xcassets\mediclip_logo.png.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\MediClip\MediClip.projitems" Label="Shared" />

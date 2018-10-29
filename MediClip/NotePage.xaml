@@ -24,7 +24,8 @@
                FontSize="Large" />
             <Label Text="Note:"
                Margin="5"
-               FontAttributes="Bold" />
+               FontAttributes="Bold" 
+                   FontSize="Medium"/>
             <Label x:Name="NoteText"
                Margin="5" />
         

@@ -77,6 +77,16 @@ namespace MediClip
             // Check if storage status is granted
             if (cameraStatus == PermissionStatus.Granted && storageStatus == PermissionStatus.Granted)
             {
+                //============================================= 
+                //Reference C3: Externally Sourced Datetime pull
+                //Purpose: Accessing date and time that is on the device
+                //Date: 21/10/2018
+                //Source: Xamarin Forum
+                //Author: Laser
+                //URL: https://forums.xamarin.com/discussion/25375/datetime-tolocaltime
+                //Adaption Required: had to create a variable that to call date and time to 
+                // Name the photo. so each photo has a different name
+                //=============================================
                 DateTime dt = DateTime.Now.ToLocalTime();
                 pictureName = Convert.ToString(pPatientID) +
                               Convert.ToString(dt.Hour) +
@@ -85,6 +95,9 @@ namespace MediClip
                               Convert.ToString(dt.Day) +
                               Convert.ToString(dt.Month) +
                               Convert.ToString(dt.Year);
+                //============================================= 
+                //End reference C3
+                //============================================= 
                 // Store taken photo in the phones album
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
@@ -116,6 +129,13 @@ namespace MediClip
             String theText = this.entryField.Text;
             String theTitle = this.title.Text;
             String theImage = pictureName;
+            //Creating a Note to pass to the NotePage once created.
+            Note tempNote = new Note();
+            tempNote.PatientID = pPatientID;
+            tempNote.Text = theText;
+            tempNote.Picture = pictureName;
+            tempNote.Title = theTitle;
+
             try
             {
                 // run the query
@@ -125,7 +145,7 @@ namespace MediClip
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    Navigation.PushAsync(new HomePage());
+                    Navigation.PushAsync(new NotePage(tempNote));
                 });
             }
             catch
@@ -136,11 +156,19 @@ namespace MediClip
                 });
             }
         }
+        //============================================= 
+        //Reference C1: Sensor activation code
+        //Purpose: Adds Senor functionality to the form, the
+        //ability to read the Accelerometer
+        //Date: 11/10/2018
+        //Source: Lab 5
+        //Author: David Cornforth
+        //URL: N/A 
+        //Adaption Required:Below code was borrowed from week 5 lab to enable the Accelerometer
+        //and to disable the accelerometer changed method called when a reading is registered.
+        //=============================================
 
         //All below code is for cleaning the notes section for text
-        //Below code was borrowed from week 5 lab to enable the Accelerometer
-        //and to disable to the accelerometer
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -171,8 +199,32 @@ namespace MediClip
                     break;
             }
         }
+        //============================================= 
+        //End reference C1
+        //============================================= 
 
-        // This methord is ussed to check if there was a shake
+        // This methord checks to see if the device was shaken by calling WasTheDeviceShaken 
+        // and if so this methord clears the text Feild.
+        private void ClearTextField(MotionVector value)
+        {
+            if (WasTheDeviceShaken(value))
+            {
+                this.entryField.Text = "";
+            }
+        }
+
+        //============================================= 
+        //Reference C2: C
+        //Purpose:takes the accelermeter readings and checks to see if device was shaken
+        //Date: 11/10/2018
+        //Source: W3 school
+        //Author: unknown
+        //URL: https://www.w3.org/TR/accelerometer/
+        //Adaption Required:Below code was adapted from a similar shake check 
+        // but code had higher values and checked each value individually and returned values instead of bools
+        //=============================================
+
+        // This methord is used to check if there was a shake
         private Boolean WasTheDeviceShaken(MotionVector value)
         {
 
@@ -185,15 +237,10 @@ namespace MediClip
                 return false;
             }
         }
+        //============================================= 
+        //End reference C2
+        //============================================= 
 
-        // This methord checks to see if the device was shaken by calling another methord and if so this methord clears the text Feild.
-        private void ClearTextField(MotionVector value)
-        {
-            if (WasTheDeviceShaken(value))
-            {
-                this.entryField.Text = "";
-            }
-        }
     }
 }
 

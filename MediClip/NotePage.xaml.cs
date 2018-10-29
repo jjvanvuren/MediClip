@@ -12,6 +12,7 @@ namespace MediClip
 {
 	public partial class NotePage : ContentPage
 	{
+        //creating Xaml link variables
         private Label title;
         private Label text;
         private Image noteImage;
@@ -19,6 +20,8 @@ namespace MediClip
         public NotePage (Note incomingNote)
 		{
 			InitializeComponent ();
+
+            //linking Xaml link variables to Xaml objects
             this.title = this.FindByName<Label>("Title");
             this.text = this.FindByName<Label>("NoteText");
             this.noteImage = this.FindByName<Image>("PhotoImage");
