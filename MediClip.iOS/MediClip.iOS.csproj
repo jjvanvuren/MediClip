@@ -175,15 +175,33 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross1x.jpeg" />
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross2x.jpeg" />
-    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross.jpeg" />
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo1x.png" />
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo2x.png" />
-    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo3x.png" />
-    <ImageAsset Include="Assets.xcassets\HamburgerIconWhite.png.imageset\HamburgerIconWhite.png" />
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross1x.jpeg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross2x.jpeg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bobross.jpeg.imageset\bobross.jpeg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mediclip_logo.png.imageset\mediclip_logo3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HamburgerIconWhite.png.imageset\HamburgerIconWhite.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
