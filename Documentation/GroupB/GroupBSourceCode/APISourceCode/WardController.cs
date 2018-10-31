@@ -12,7 +12,7 @@ namespace MediClipWebAPI.Controllers
     public class WardController : ApiController
     {
         // String used to connect to the Azure SQL Server
-        static String DATABASE_CONNECTION = "Server=tcp:mediclip.database.windows.net,1433;Initial Catalog=MediClipDB;Persist Security Info=False;User ID=jacques;Password=gd3*#4XZ3iyFSD;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        static String DATABASE_CONNECTION = "Server=tcp:mediclip.database.windows.net,1433;Initial Catalog=MediClipDB;Persist Security Info=False;User ID={userid};Password={password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         // Retrieve all wards from the database
         //GET /GetAllWards
@@ -51,7 +51,7 @@ namespace MediClipWebAPI.Controllers
                 connection.Close(); // Close the connection to the server
 
                 return qresults;
-            }     
+            }
         }
 
         // Retrieve a single ward from the database using the ward id
