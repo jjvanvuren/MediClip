@@ -32,7 +32,7 @@ namespace MediClip
             this.patientImage = this.FindByName<Image>("PatientPicture");
             this.dob = this.FindByName<Label>("DoB");
 
-            //Outputting all vaibles to correct locations in xaml
+            //Outputting all variables to correct locations in xaml
             name.Text = "Name: " + incomingPatient.FullName;
             dob.Text = "Date of Birth: " + incomingPatient.Dob;
             gender.Text = "Gender: " + incomingPatient.Sex;
@@ -54,7 +54,7 @@ namespace MediClip
             Navigation.PushAsync(new MenuPage());
         }
 
-        //Event Handler when note button is clicket to see patients notes.
+        //Event Handler when note button is clicked to see patients notes.
         private void Notes_Clicked(object sender, System.EventArgs e)
         {
             ObservableCollection<Note> patientNotes = new ObservableCollection<Note>();

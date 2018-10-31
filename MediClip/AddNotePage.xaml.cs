@@ -98,8 +98,8 @@ namespace MediClip
                 //Source: Xamarin Forum
                 //Author: Laser
                 //URL: https://forums.xamarin.com/discussion/25375/datetime-tolocaltime
-                //Adaption Required: had to create a variable that to call date and time to 
-                // Name the photo. so each photo has a different name
+                //Adaption Required: Created a variable that calls the current date and time, to make 
+                // each photo name unique.
                 //=============================================
                 DateTime dt = DateTime.Now.ToLocalTime();
                 pictureName = Convert.ToString(pPatientID) +
@@ -112,7 +112,7 @@ namespace MediClip
                 //============================================= 
                 //End reference C3
                 //============================================= 
-                // Store taken photo in the phones album
+                // Store taken photo in the device's local album storage
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
                 SaveToAlbum = true,
@@ -177,14 +177,13 @@ namespace MediClip
         }
         //============================================= 
         //Reference C1: Sensor activation code
-        //Purpose: Adds Senor functionality to the form, the
-        //ability to read the Accelerometer
+        //Purpose: Adds Sensor functionality to the form, the
+        // ability to read the Accelerometer
         //Date: 11/10/2018
         //Source: Lab 5
         //Author: David Cornforth
         //URL: N/A 
-        //Adaption Required:Below code was borrowed from week 5 lab to enable the Accelerometer
-        //and to disable the accelerometer changed method called when a reading is registered.
+        //Adaption Required: Small changes to suit our code, such as different called methods.
         //=============================================
 
         //All below code is for cleaning the notes section for text
@@ -195,7 +194,7 @@ namespace MediClip
             CrossDeviceMotion.Current.Start(MotionSensorType.Accelerometer);
         }
 
-        // When this page dissapears, stop listenting for changes
+        // When this page dissapears, stop listening for changes
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -206,11 +205,10 @@ namespace MediClip
 
         void Current_SensorValueChanged(object sender, SensorValueChangedEventArgs e)
         {
-            // As the motion plugin supports multiple types of sensors (eg compass, magnetometer, etc) 
-            // we need to differentiate between sensor readings
+            // Differentiate between sensor readings
             switch (e.SensorType)
             {
-                // When the accelerometer changes, call a method to handle this event
+                // When the accelerometer changes it will call the desired method
                 case MotionSensorType.Accelerometer:
                     ClearTextField(e.Value as MotionVector);
                     break;
@@ -222,8 +220,8 @@ namespace MediClip
         //End reference C1
         //============================================= 
 
-        // This methord checks to see if the device was shaken by calling WasTheDeviceShaken 
-        // and if so this methord clears the text Feild.
+        // This method checks to see if the device was shaken by calling WasTheDeviceShaken 
+        // and if so it clears the text field.
         private void ClearTextField(MotionVector value)
         {
             if (WasTheDeviceShaken(value))
@@ -233,17 +231,17 @@ namespace MediClip
         }
 
         //============================================= 
-        //Reference C2: C
-        //Purpose:takes the accelermeter readings and checks to see if device was shaken
+        //Reference C2: Externally sourced algorithms
+        //Purpose: takes the accelerometer readings and checks to see if device was shaken
         //Date: 11/10/2018
         //Source: W3 school
         //Author: unknown
         //URL: https://www.w3.org/TR/accelerometer/
-        //Adaption Required:Below code was adapted from a similar shake check 
-        // but code had higher values and checked each value individually and returned values instead of bools
+        //Adaption Required: Lowered the reading amounts (sensitivity) and changed the code to return a bool
+        // depending on if the device was shaken or not.
         //=============================================
 
-        // This methord is used to check if there was a shake
+        // Check to see if the device was shaken
         private Boolean WasTheDeviceShaken(MotionVector value)
         {
 

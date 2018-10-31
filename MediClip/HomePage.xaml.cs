@@ -19,7 +19,7 @@ namespace MediClip
         private ObservableCollection<Ward> wards = new ObservableCollection<Ward>();
 
         //============================================= 
-        //Reference C1: Externally Sourced algorithm
+        //Reference A3: Externally Sourced algorithm
         //Purpose: 
         //Date: 26/10/2018
         //Source: stackoverflow
@@ -34,7 +34,7 @@ namespace MediClip
             return true;
         }
         //============================================= 
-        //End reference C1
+        //End reference A3
         //============================================= 
 
         public HomePage()
