@@ -55,6 +55,18 @@ namespace MediClip
         //Adaption Required: Had to manually set permissions for camera use and install
         //further nuget packages for the algorithm to  work correctly
         //=============================================
+
+        //============================================= 
+        //Reference A2: Externally Sourced algorithms
+        //Purpose: Adds camera functionality to the form, the
+        //ability to add a picture taken with the phone
+        //Date: 15/10/2018
+        //Source: Github Repository
+        //Author: James Montemagno
+        //URL: https://github.com/jamesmontemagno/MediaPlugin
+        //Adaption Required: Had to manually set permissions for camera use and install
+        //further nuget packages for the algorithm to  work correctly
+        //=============================================
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
@@ -123,6 +135,11 @@ namespace MediClip
         //============================================= 
         //End reference A1
         //============================================= 
+
+        //============================================= 
+        //End reference A2
+        //============================================= 
+
 
 
         //Saving all information to the data base
