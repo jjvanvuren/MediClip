@@ -53,12 +53,14 @@ CREATE TABLE Note(
 	FOREIGN KEY(PatientID)		REFERENCES Patient (PatientID)	ON UPDATE CASCADE ON DELETE CASCADE,
 )
 
+--Simple queries to check tables
 SELECT * FROM Patient
 SELECT * FROM Ward
 SELECT * FROM AssignedWard
 SELECT * FROM Nurse
 SELECT * FROM Note
 
+--Drop table commands
 DROP TABLE Note;
 DROP TABLE Patient;
 DROP TABLE Ward;
