@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.AddNotePage"
+             Title="New Note">
+
+    <!--Items to be displayed on the toolbar-->
+    <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+    </ContentPage.ToolbarItems>
+
+    <!--Page used to add a new note for a patient-->
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Note Title:" />
+
+            <!--Area for user to enter note title-->
+            <Entry x:Name="Title"
+                   Placeholder="Title"
+                   MaxLength="255"
+                   Keyboard="Default" />
+
+            <Label Text="Note:" />
+        
+            <!--Area for user to enter note text-->
+            <Editor x:Name="NoteArea"
+                    MaxLength="255"
+                    Keyboard="Default"
+                    VerticalOptions="Center"
+                    HeightRequest="200" />
+
+            <!--The image to be added to the note-->
+            <Image x:Name="PhotoImage" />
+
+            <!--Used to take a photo to be added to the note-->
+            <Button Text="Add Photo"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    x:Name="CameraButton"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"/>
+
+            <!--Used submit the note to the database-->
+            <Button Text="Submit"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Submit_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

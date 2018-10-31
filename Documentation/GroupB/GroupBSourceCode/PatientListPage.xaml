@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.PatientListPage"
+             Title="Patients">
+
+    <!--Items to be displayed on the toolbar-->
+    <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+    </ContentPage.ToolbarItems>
+
+    <!--A List of the patients in the ward-->
+    <ListView x:Name="Patients"
+              HasUnevenRows="True"
+              BackgroundColor="#ecf0f1"
+              SeparatorVisibility="None"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              ItemTapped="Patient_Clicked">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell  x:Name="Patientpicture"
+                            Text="{Binding PatientID}"
+                            Detail="{Binding FullName}"
+                            ImageSource="{Binding Picture}"
+                            >
+                </ImageCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

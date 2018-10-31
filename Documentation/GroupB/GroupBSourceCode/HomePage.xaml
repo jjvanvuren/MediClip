@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MediClip"
+             x:Class="MediClip.HomePage"
+             NavigationPage.HasBackButton="False"
+             Title="Home Page">
+
+    <!--Items to be displayed on the toolbar-->
+    <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+    </ContentPage.ToolbarItems>
+
+    <!--A List of the wards-->
+    <ListView x:Name="ListView"
+              HasUnevenRows="True"
+              BackgroundColor="#ecf0f1"
+              SeparatorVisibility="None"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              ItemTapped="Ward_Clicked">
+        <!--Template used for listing a ward-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="6,4,6,4"
+                                 BackgroundColor="White">
+                        <!--Binds to ward name-->
+                        <Label Text="{Binding Name}" 
+                               Margin="8"
+                               FontAttributes="Bold"
+                               FontSize="Medium" />
+                        <!--Binds to ward description-->
+                        <Label Text="{Binding Description}"
+                               Margin="8,2,8,4"
+                               FontSize="Small" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>

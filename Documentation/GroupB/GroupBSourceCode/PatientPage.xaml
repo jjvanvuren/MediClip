@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.PatientPage"
+             Title="Patient Details">
+
+    <!--Items to be displayed on the toolbar-->
+    <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="0"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout>
+            <Image x:Name="PatientPicture"/>
+
+            <Label x:Name= "FullName"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />
+            <Label x:Name= "DoB"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />  
+            <Label x:Name= "Gender"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />
+            <Label x:Name= "AssignDateFrom"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />
+            <Label x:Name= "AssignDateTo"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   Margin="5" />
+            <Button Text="Notes"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Notes_Clicked" />
+            <Button Text="Dosage Information"
+                    BackgroundColor="#127c54"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="Dosage_Clicked" />
+        </StackLayout>
+    </ScrollView>
+    
+</ContentPage>

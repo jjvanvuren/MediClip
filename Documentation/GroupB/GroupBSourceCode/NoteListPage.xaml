@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.NoteListPage"
+             Title="Patient Notes">
+
+    <!--Items to be displayed on the toolbar-->
+    <ContentPage.ToolbarItems>
+        <!--Displays the menu-->
+        <ToolbarItem Text="Menu"
+                     Icon="HamburgerIconWhite.png"
+                     Priority="1"
+                     Name="Menu"
+                     Order="Primary"
+                     Activated="Handle_Activated" />
+        <!--Used to add a new note-->
+        <ToolbarItem Text="Add Note"
+                     Priority="0"
+                     Name="Add Note"
+                     Activated="AddNote_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <!--A list of all the notes for a patient-->
+    <ListView x:Name="ListView"
+              HasUnevenRows="True"
+              BackgroundColor="#ecf0f1"
+              SeparatorVisibility="None"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              ItemTapped="Note_Clicked">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="6,4,6,4"
+                                 BackgroundColor="White">
+                        <Label Text="{Binding Title}"
+                           Margin="8"
+                           FontAttributes="Bold"
+                           FontSize="Medium" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

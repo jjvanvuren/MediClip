@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediClip.LoginPage"
+             NavigationPage.HasBackButton="False"
+             Title="Login">
+  
+    <!--Page used for user login-->
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image x:Name="MediClipLogo"
+                   Source="mediclip_logo.png"
+                   Margin="50"
+                   HeightRequest="150"
+                   WidthRequest="150"/>
+              
+                <!--Field for entering username-->
+                <Entry x:Name="entUserName" 
+                   Placeholder="Username" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
+                   WidthRequest="400" />
+              
+                <!--Field for entering password-->
+                <Entry x:Name="entPassword" 
+                   Placeholder="Password" 
+                   IsPassword="True" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start"
+                   WidthRequest="400" />
+              
+                <!--Used to login the user-->
+                <Button x:Name="btnLogIn" 
+                    Text="Log In" 
+                    Clicked="LogIn_Clicked" 
+                    BackgroundColor="#127c54" 
+                    TextColor="White" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" 
+                    WidthRequest="150" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
