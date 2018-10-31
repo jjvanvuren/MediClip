@@ -64,8 +64,8 @@ namespace MediClip
         //Source: Github Repository
         //Author: James Montemagno
         //URL: https://github.com/jamesmontemagno/MediaPlugin
-        //Adaption Required: Had to manually set permissions for camera use and install
-        //further nuget packages for the algorithm to  work correctly
+        //Adaption Required: Had to change permission settings so that the application could access the device’s 
+        // camera and other media. Changed where photos are stored and how their file names are generated.
         //=============================================
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {

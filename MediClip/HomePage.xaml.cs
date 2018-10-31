@@ -20,7 +20,8 @@ namespace MediClip
 
         //============================================= 
         //Reference A3: Externally Sourced algorithm
-        //Purpose: 
+        //Purpose: Disable the back button so user doesnt accidentally return to
+        // login page.
         //Date: 26/10/2018
         //Source: stackoverflow
         //Author: Jesper Christensen
