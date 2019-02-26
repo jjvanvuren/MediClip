@@ -1,5 +1,5 @@
 # MediClip
-INFT2051 Assignment
+INFT2051 Assignment by Francois Janse van Vuren, Karl Foley and Jacobus Janse van Vuren
 
 ## App Icon
 The icon was made by combining svg files from the following sources:
